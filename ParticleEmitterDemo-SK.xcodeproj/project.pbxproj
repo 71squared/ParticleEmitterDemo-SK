@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8272B38B19701AFE00275F35 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B38A19701AFE00275F35 /* main.m */; };
+		8272B38E19701AFE00275F35 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B38D19701AFE00275F35 /* AppDelegate.m */; };
+		8272B39119701AFE00275F35 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B39019701AFE00275F35 /* GameScene.m */; };
+		8272B39319701AFE00275F35 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8272B39219701AFE00275F35 /* GameScene.sks */; };
+		8272B39619701AFE00275F35 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B39519701AFE00275F35 /* GameViewController.m */; };
+		8272B39919701AFE00275F35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8272B39719701AFE00275F35 /* Main.storyboard */; };
+		8272B39B19701AFE00275F35 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8272B39A19701AFE00275F35 /* Images.xcassets */; };
+		8272B3A719701AFE00275F35 /* ParticleEmitterDemo_SKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3A619701AFE00275F35 /* ParticleEmitterDemo_SKTests.m */; };
+		8272B3B91970238B00275F35 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3B21970238B00275F35 /* TBXML+Compression.m */; };
+		8272B3BA1970238B00275F35 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3B31970238B00275F35 /* TBXML+HTTP.m */; };
+		8272B3BB1970238B00275F35 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3B41970238B00275F35 /* TBXML.m */; };
+		8272B3D31970239C00275F35 /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
+		8272B3D41970239C00275F35 /* Blue Flame.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BE1970239C00275F35 /* Blue Flame.pex */; };
+		8272B3D51970239C00275F35 /* Blue Galaxy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BF1970239C00275F35 /* Blue Galaxy.pex */; };
+		8272B3D61970239C00275F35 /* Comet.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C01970239C00275F35 /* Comet.pex */; };
+		8272B3D71970239C00275F35 /* Crazy Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C11970239C00275F35 /* Crazy Blue.pex */; };
+		8272B3D81970239C00275F35 /* Electrons.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C21970239C00275F35 /* Electrons.pex */; };
+		8272B3D91970239C00275F35 /* Foam.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C31970239C00275F35 /* Foam.pex */; };
+		8272B3DA1970239C00275F35 /* huo1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C41970239C00275F35 /* huo1.pex */; };
+		8272B3DB1970239C00275F35 /* Into The Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C51970239C00275F35 /* Into The Blue.pex */; };
+		8272B3DC1970239C00275F35 /* JasonChoi_Flash.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */; };
+		8272B3DD1970239C00275F35 /* JasonChoi_rising up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */; };
+		8272B3DE1970239C00275F35 /* JasonChoi_Swirl01.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */; };
+		8272B3DF1970239C00275F35 /* Meks Blood Spill.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C91970239C00275F35 /* Meks Blood Spill.pex */; };
+		8272B3E01970239C00275F35 /* Particle Emitters.pdproject in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CA1970239C00275F35 /* Particle Emitters.pdproject */; };
+		8272B3E11970239C00275F35 /* Plasma Glow.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CB1970239C00275F35 /* Plasma Glow.pex */; };
+		8272B3E21970239C00275F35 /* Real Popcorn.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CC1970239C00275F35 /* Real Popcorn.pex */; };
+		8272B3E31970239C00275F35 /* Shooting Fireball.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CD1970239C00275F35 /* Shooting Fireball.pex */; };
+		8272B3E41970239C00275F35 /* The Sun.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CE1970239C00275F35 /* The Sun.pex */; };
+		8272B3E51970239C00275F35 /* Touch Up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CF1970239C00275F35 /* Touch Up.pex */; };
+		8272B3E61970239C00275F35 /* Trippy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D01970239C00275F35 /* Trippy.pex */; };
+		8272B3E71970239C00275F35 /* Winner Stars.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D11970239C00275F35 /* Winner Stars.pex */; };
+		8272B3E81970239C00275F35 /* wu1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D21970239C00275F35 /* wu1.pex */; };
+		8272B3EE197023B500275F35 /* BaseParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3EB197023B500275F35 /* BaseParticleEmitter.m */; };
+		8272B3EF197023B500275F35 /* TBXMLParticleAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3ED197023B500275F35 /* TBXMLParticleAdditions.m */; };
+		8272B3F4197023DD00275F35 /* SKParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3F3197023DD00275F35 /* SKParticleEmitter.m */; };
+		8272B3F7197025E200275F35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8272B3F6197025E200275F35 /* libz.dylib */; };
+		8272B3F91970327500275F35 /* skParticleFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8272B3A119701AFE00275F35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8272B37D19701AFE00275F35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8272B38419701AFE00275F35;
+			remoteInfo = "ParticleEmitterDemo-SK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8272B38519701AFE00275F35 /* ParticleEmitterDemo-SK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParticleEmitterDemo-SK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8272B38919701AFE00275F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8272B38A19701AFE00275F35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8272B38C19701AFE00275F35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8272B38D19701AFE00275F35 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8272B38F19701AFE00275F35 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		8272B39019701AFE00275F35 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		8272B39219701AFE00275F35 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		8272B39419701AFE00275F35 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		8272B39519701AFE00275F35 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		8272B39819701AFE00275F35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8272B39A19701AFE00275F35 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8272B3A019701AFE00275F35 /* ParticleEmitterDemo-SKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParticleEmitterDemo-SKTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8272B3A519701AFE00275F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8272B3A619701AFE00275F35 /* ParticleEmitterDemo_SKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleEmitterDemo_SKTests.m; sourceTree = "<group>"; };
+		8272B3B21970238B00275F35 /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+Compression.m"; sourceTree = "<group>"; };
+		8272B3B31970238B00275F35 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TBXML+HTTP.m"; sourceTree = "<group>"; };
+		8272B3B41970238B00275F35 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		8272B3B61970238B00275F35 /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+Compression.h"; sourceTree = "<group>"; };
+		8272B3B71970238B00275F35 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TBXML+HTTP.h"; sourceTree = "<group>"; };
+		8272B3B81970238B00275F35 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		8272B3BD1970239C00275F35 /* Atomic Bubble.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Atomic Bubble.pex"; sourceTree = "<group>"; };
+		8272B3BE1970239C00275F35 /* Blue Flame.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Blue Flame.pex"; sourceTree = "<group>"; };
+		8272B3BF1970239C00275F35 /* Blue Galaxy.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Blue Galaxy.pex"; sourceTree = "<group>"; };
+		8272B3C01970239C00275F35 /* Comet.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Comet.pex; sourceTree = "<group>"; };
+		8272B3C11970239C00275F35 /* Crazy Blue.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Crazy Blue.pex"; sourceTree = "<group>"; };
+		8272B3C21970239C00275F35 /* Electrons.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Electrons.pex; sourceTree = "<group>"; };
+		8272B3C31970239C00275F35 /* Foam.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Foam.pex; sourceTree = "<group>"; };
+		8272B3C41970239C00275F35 /* huo1.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = huo1.pex; sourceTree = "<group>"; };
+		8272B3C51970239C00275F35 /* Into The Blue.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Into The Blue.pex"; sourceTree = "<group>"; };
+		8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JasonChoi_Flash.pex; sourceTree = "<group>"; };
+		8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "JasonChoi_rising up.pex"; sourceTree = "<group>"; };
+		8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JasonChoi_Swirl01.pex; sourceTree = "<group>"; };
+		8272B3C91970239C00275F35 /* Meks Blood Spill.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Meks Blood Spill.pex"; sourceTree = "<group>"; };
+		8272B3CA1970239C00275F35 /* Particle Emitters.pdproject */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Particle Emitters.pdproject"; sourceTree = "<group>"; };
+		8272B3CB1970239C00275F35 /* Plasma Glow.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Plasma Glow.pex"; sourceTree = "<group>"; };
+		8272B3CC1970239C00275F35 /* Real Popcorn.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Real Popcorn.pex"; sourceTree = "<group>"; };
+		8272B3CD1970239C00275F35 /* Shooting Fireball.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Shooting Fireball.pex"; sourceTree = "<group>"; };
+		8272B3CE1970239C00275F35 /* The Sun.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "The Sun.pex"; sourceTree = "<group>"; };
+		8272B3CF1970239C00275F35 /* Touch Up.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Touch Up.pex"; sourceTree = "<group>"; };
+		8272B3D01970239C00275F35 /* Trippy.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Trippy.pex; sourceTree = "<group>"; };
+		8272B3D11970239C00275F35 /* Winner Stars.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Winner Stars.pex"; sourceTree = "<group>"; };
+		8272B3D21970239C00275F35 /* wu1.pex */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wu1.pex; sourceTree = "<group>"; };
+		8272B3EA197023B500275F35 /* BaseParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseParticleEmitter.h; sourceTree = "<group>"; };
+		8272B3EB197023B500275F35 /* BaseParticleEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseParticleEmitter.m; sourceTree = "<group>"; };
+		8272B3EC197023B500275F35 /* TBXMLParticleAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXMLParticleAdditions.h; sourceTree = "<group>"; };
+		8272B3ED197023B500275F35 /* TBXMLParticleAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXMLParticleAdditions.m; sourceTree = "<group>"; };
+		8272B3F2197023DD00275F35 /* SKParticleEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKParticleEmitter.h; sourceTree = "<group>"; };
+		8272B3F3197023DD00275F35 /* SKParticleEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKParticleEmitter.m; sourceTree = "<group>"; };
+		8272B3F5197024DA00275F35 /* ParticleEmitterDemo-SK.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParticleEmitterDemo-SK.pch"; sourceTree = "<group>"; };
+		8272B3F6197025E200275F35 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = skParticleFragmentShader.fsh; path = "../../Particle Emitter/skParticleFragmentShader.fsh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8272B38219701AFE00275F35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8272B3F7197025E200275F35 /* libz.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8272B39D19701AFE00275F35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8272B37C19701AFE00275F35 = {
+			isa = PBXGroup;
+			children = (
+				8272B3F6197025E200275F35 /* libz.dylib */,
+				8272B3B01970238B00275F35 /* TBXML */,
+				8272B3BC1970239C00275F35 /* Particle Emitter Config */,
+				8272B3E9197023B500275F35 /* Particle Emitter */,
+				8272B3F0197023DD00275F35 /* SpriteKit */,
+				8272B38719701AFE00275F35 /* ParticleEmitterDemo-SK */,
+				8272B3A319701AFE00275F35 /* ParticleEmitterDemo-SKTests */,
+				8272B38619701AFE00275F35 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8272B38619701AFE00275F35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8272B38519701AFE00275F35 /* ParticleEmitterDemo-SK.app */,
+				8272B3A019701AFE00275F35 /* ParticleEmitterDemo-SKTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8272B38719701AFE00275F35 /* ParticleEmitterDemo-SK */ = {
+			isa = PBXGroup;
+			children = (
+				8272B38C19701AFE00275F35 /* AppDelegate.h */,
+				8272B38D19701AFE00275F35 /* AppDelegate.m */,
+				8272B38F19701AFE00275F35 /* GameScene.h */,
+				8272B39019701AFE00275F35 /* GameScene.m */,
+				8272B39219701AFE00275F35 /* GameScene.sks */,
+				8272B39419701AFE00275F35 /* GameViewController.h */,
+				8272B39519701AFE00275F35 /* GameViewController.m */,
+				8272B39719701AFE00275F35 /* Main.storyboard */,
+				8272B39A19701AFE00275F35 /* Images.xcassets */,
+				8272B38819701AFE00275F35 /* Supporting Files */,
+			);
+			path = "ParticleEmitterDemo-SK";
+			sourceTree = "<group>";
+		};
+		8272B38819701AFE00275F35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8272B38919701AFE00275F35 /* Info.plist */,
+				8272B38A19701AFE00275F35 /* main.m */,
+				8272B3F5197024DA00275F35 /* ParticleEmitterDemo-SK.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8272B3A319701AFE00275F35 /* ParticleEmitterDemo-SKTests */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3A619701AFE00275F35 /* ParticleEmitterDemo_SKTests.m */,
+				8272B3A419701AFE00275F35 /* Supporting Files */,
+			);
+			path = "ParticleEmitterDemo-SKTests";
+			sourceTree = "<group>";
+		};
+		8272B3A419701AFE00275F35 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3A519701AFE00275F35 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8272B3B01970238B00275F35 /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3B11970238B00275F35 /* TBXML-Code */,
+				8272B3B51970238B00275F35 /* TBXML-Headers */,
+			);
+			path = TBXML;
+			sourceTree = "<group>";
+		};
+		8272B3B11970238B00275F35 /* TBXML-Code */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3B21970238B00275F35 /* TBXML+Compression.m */,
+				8272B3B31970238B00275F35 /* TBXML+HTTP.m */,
+				8272B3B41970238B00275F35 /* TBXML.m */,
+			);
+			path = "TBXML-Code";
+			sourceTree = "<group>";
+		};
+		8272B3B51970238B00275F35 /* TBXML-Headers */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3B61970238B00275F35 /* TBXML+Compression.h */,
+				8272B3B71970238B00275F35 /* TBXML+HTTP.h */,
+				8272B3B81970238B00275F35 /* TBXML.h */,
+			);
+			path = "TBXML-Headers";
+			sourceTree = "<group>";
+		};
+		8272B3BC1970239C00275F35 /* Particle Emitter Config */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3BD1970239C00275F35 /* Atomic Bubble.pex */,
+				8272B3BE1970239C00275F35 /* Blue Flame.pex */,
+				8272B3BF1970239C00275F35 /* Blue Galaxy.pex */,
+				8272B3C01970239C00275F35 /* Comet.pex */,
+				8272B3C11970239C00275F35 /* Crazy Blue.pex */,
+				8272B3C21970239C00275F35 /* Electrons.pex */,
+				8272B3C31970239C00275F35 /* Foam.pex */,
+				8272B3C41970239C00275F35 /* huo1.pex */,
+				8272B3C51970239C00275F35 /* Into The Blue.pex */,
+				8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */,
+				8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */,
+				8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */,
+				8272B3C91970239C00275F35 /* Meks Blood Spill.pex */,
+				8272B3CA1970239C00275F35 /* Particle Emitters.pdproject */,
+				8272B3CB1970239C00275F35 /* Plasma Glow.pex */,
+				8272B3CC1970239C00275F35 /* Real Popcorn.pex */,
+				8272B3CD1970239C00275F35 /* Shooting Fireball.pex */,
+				8272B3CE1970239C00275F35 /* The Sun.pex */,
+				8272B3CF1970239C00275F35 /* Touch Up.pex */,
+				8272B3D01970239C00275F35 /* Trippy.pex */,
+				8272B3D11970239C00275F35 /* Winner Stars.pex */,
+				8272B3D21970239C00275F35 /* wu1.pex */,
+			);
+			path = "Particle Emitter Config";
+			sourceTree = "<group>";
+		};
+		8272B3E9197023B500275F35 /* Particle Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3EA197023B500275F35 /* BaseParticleEmitter.h */,
+				8272B3EB197023B500275F35 /* BaseParticleEmitter.m */,
+				8272B3EC197023B500275F35 /* TBXMLParticleAdditions.h */,
+				8272B3ED197023B500275F35 /* TBXMLParticleAdditions.m */,
+			);
+			path = "Particle Emitter";
+			sourceTree = "<group>";
+		};
+		8272B3F0197023DD00275F35 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3F1197023DD00275F35 /* SKParticleEmitter */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		8272B3F1197023DD00275F35 /* SKParticleEmitter */ = {
+			isa = PBXGroup;
+			children = (
+				8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */,
+				8272B3F2197023DD00275F35 /* SKParticleEmitter.h */,
+				8272B3F3197023DD00275F35 /* SKParticleEmitter.m */,
+			);
+			path = SKParticleEmitter;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8272B38419701AFE00275F35 /* ParticleEmitterDemo-SK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8272B3AA19701AFE00275F35 /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SK" */;
+			buildPhases = (
+				8272B38119701AFE00275F35 /* Sources */,
+				8272B38219701AFE00275F35 /* Frameworks */,
+				8272B38319701AFE00275F35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ParticleEmitterDemo-SK";
+			productName = "ParticleEmitterDemo-SK";
+			productReference = 8272B38519701AFE00275F35 /* ParticleEmitterDemo-SK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8272B39F19701AFE00275F35 /* ParticleEmitterDemo-SKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8272B3AD19701AFE00275F35 /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SKTests" */;
+			buildPhases = (
+				8272B39C19701AFE00275F35 /* Sources */,
+				8272B39D19701AFE00275F35 /* Frameworks */,
+				8272B39E19701AFE00275F35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8272B3A219701AFE00275F35 /* PBXTargetDependency */,
+			);
+			name = "ParticleEmitterDemo-SKTests";
+			productName = "ParticleEmitterDemo-SKTests";
+			productReference = 8272B3A019701AFE00275F35 /* ParticleEmitterDemo-SKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8272B37D19701AFE00275F35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "71Squared Ltd";
+				TargetAttributes = {
+					8272B38419701AFE00275F35 = {
+						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 3535P3U7VR;
+					};
+					8272B39F19701AFE00275F35 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 8272B38419701AFE00275F35;
+					};
+				};
+			};
+			buildConfigurationList = 8272B38019701AFE00275F35 /* Build configuration list for PBXProject "ParticleEmitterDemo-SK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8272B37C19701AFE00275F35;
+			productRefGroup = 8272B38619701AFE00275F35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8272B38419701AFE00275F35 /* ParticleEmitterDemo-SK */,
+				8272B39F19701AFE00275F35 /* ParticleEmitterDemo-SKTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8272B38319701AFE00275F35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8272B3D91970239C00275F35 /* Foam.pex in Resources */,
+				8272B3D81970239C00275F35 /* Electrons.pex in Resources */,
+				8272B3D51970239C00275F35 /* Blue Galaxy.pex in Resources */,
+				8272B3DF1970239C00275F35 /* Meks Blood Spill.pex in Resources */,
+				8272B3DE1970239C00275F35 /* JasonChoi_Swirl01.pex in Resources */,
+				8272B3E11970239C00275F35 /* Plasma Glow.pex in Resources */,
+				8272B39B19701AFE00275F35 /* Images.xcassets in Resources */,
+				8272B3E51970239C00275F35 /* Touch Up.pex in Resources */,
+				8272B3DA1970239C00275F35 /* huo1.pex in Resources */,
+				8272B3D71970239C00275F35 /* Crazy Blue.pex in Resources */,
+				8272B3D31970239C00275F35 /* Atomic Bubble.pex in Resources */,
+				8272B3E71970239C00275F35 /* Winner Stars.pex in Resources */,
+				8272B3E21970239C00275F35 /* Real Popcorn.pex in Resources */,
+				8272B3E81970239C00275F35 /* wu1.pex in Resources */,
+				8272B3F91970327500275F35 /* skParticleFragmentShader.fsh in Resources */,
+				8272B3E41970239C00275F35 /* The Sun.pex in Resources */,
+				8272B3E01970239C00275F35 /* Particle Emitters.pdproject in Resources */,
+				8272B3E61970239C00275F35 /* Trippy.pex in Resources */,
+				8272B3DB1970239C00275F35 /* Into The Blue.pex in Resources */,
+				8272B3DD1970239C00275F35 /* JasonChoi_rising up.pex in Resources */,
+				8272B39319701AFE00275F35 /* GameScene.sks in Resources */,
+				8272B39919701AFE00275F35 /* Main.storyboard in Resources */,
+				8272B3E31970239C00275F35 /* Shooting Fireball.pex in Resources */,
+				8272B3D41970239C00275F35 /* Blue Flame.pex in Resources */,
+				8272B3D61970239C00275F35 /* Comet.pex in Resources */,
+				8272B3DC1970239C00275F35 /* JasonChoi_Flash.pex in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8272B39E19701AFE00275F35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8272B38119701AFE00275F35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8272B3B91970238B00275F35 /* TBXML+Compression.m in Sources */,
+				8272B3EE197023B500275F35 /* BaseParticleEmitter.m in Sources */,
+				8272B3F4197023DD00275F35 /* SKParticleEmitter.m in Sources */,
+				8272B39619701AFE00275F35 /* GameViewController.m in Sources */,
+				8272B38E19701AFE00275F35 /* AppDelegate.m in Sources */,
+				8272B39119701AFE00275F35 /* GameScene.m in Sources */,
+				8272B3EF197023B500275F35 /* TBXMLParticleAdditions.m in Sources */,
+				8272B38B19701AFE00275F35 /* main.m in Sources */,
+				8272B3BA1970238B00275F35 /* TBXML+HTTP.m in Sources */,
+				8272B3BB1970238B00275F35 /* TBXML.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8272B39C19701AFE00275F35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8272B3A719701AFE00275F35 /* ParticleEmitterDemo_SKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8272B3A219701AFE00275F35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8272B38419701AFE00275F35 /* ParticleEmitterDemo-SK */;
+			targetProxy = 8272B3A119701AFE00275F35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8272B39719701AFE00275F35 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8272B39819701AFE00275F35 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8272B3A819701AFE00275F35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8272B3A919701AFE00275F35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8272B3AB19701AFE00275F35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "ParticleEmitterDemo-SK/ParticleEmitterDemo-SK.pch";
+				INFOPLIST_FILE = "ParticleEmitterDemo-SK/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		8272B3AC19701AFE00275F35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "ParticleEmitterDemo-SK/ParticleEmitterDemo-SK.pch";
+				INFOPLIST_FILE = "ParticleEmitterDemo-SK/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		8272B3AE19701AFE00275F35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ParticleEmitterDemo-SK.app/ParticleEmitterDemo-SK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ParticleEmitterDemo-SKTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		8272B3AF19701AFE00275F35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ParticleEmitterDemo-SK.app/ParticleEmitterDemo-SK";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ParticleEmitterDemo-SKTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8272B38019701AFE00275F35 /* Build configuration list for PBXProject "ParticleEmitterDemo-SK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8272B3A819701AFE00275F35 /* Debug */,
+				8272B3A919701AFE00275F35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8272B3AA19701AFE00275F35 /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8272B3AB19701AFE00275F35 /* Debug */,
+				8272B3AC19701AFE00275F35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8272B3AD19701AFE00275F35 /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8272B3AE19701AFE00275F35 /* Debug */,
+				8272B3AF19701AFE00275F35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8272B37D19701AFE00275F35 /* Project object */;
+}
