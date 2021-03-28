@@ -13,11 +13,42 @@
 import Foundation
 import CoreGraphics
 import SpriteKit
+import XMLCoder
 
 // Particle type
-enum ParticleTypes : Int {
+enum ParticleTypes : Int, Codable, DynamicNodeDecoding {
+    
+    static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .attribute
+    }
+    
     case particleTypeGravity
     case particleTypeRadial
+    
+    enum CodingKeys: String, CodingKey {
+        case value
+    }
+    
+    enum DecodeError : Error {
+        case ParticleTypeError
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        if let value = try? values.decode(Int.self, forKey: .value) {
+            self = ParticleTypes(rawValue: value)!
+            return
+        }
+        
+        if let value = try? values.decode(String.self, forKey: .value) {
+            self = ParticleTypes(rawValue: Int(value)!)!
+            return
+        }
+        
+        throw DecodeError.ParticleTypeError
+    }
+
 }
 
 // Structure that holds the location and size for each point sprite
@@ -71,75 +102,294 @@ struct Particle {
 // particle emitters allows you to create organic looking effects such as smoke, fire and
 // explosions.
 //
-class BaseParticleEmitter {
+
+struct Vector2 : Codable, DynamicNodeDecoding {
+    
+    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .attribute
+    }
+    
+    var x : GLfloat
+    var y : GLfloat
+    
+    enum CodingKeys : String, CodingKey {
+        case x
+        case y
+    }
+    
+    static var zero : Vector2 {
+        get {
+            return .init(x: 0.0, y: 0.0)
+        }
+    }
+    
+    func asGLVector2() -> GLKVector2 {
+        return GLKVector2Make(x, y)
+    }
+}
+
+struct Vector4 : Codable, DynamicNodeDecoding {
+    
+    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .attribute
+    }
+    
+    var x : GLfloat
+    var y : GLfloat
+    var z : GLfloat
+    var w : GLfloat
+
+    enum CodingKeys : String, CodingKey {
+        case x
+        case y
+        case z
+        case w
+    }
+    
+    static var zero : Vector4 {
+        get {
+            return .init(x: 0.0, y: 0.0, z: 0.0, w: 0.0)
+        }
+    }
+    
+    var r : GLfloat {
+        get {
+            return x
+        }
+        
+        set {
+            x = newValue
+        }
+    }
+
+    var g : GLfloat {
+        get {
+            return y
+        }
+        
+        set {
+            y = newValue
+        }
+    }
+
+    var b : GLfloat {
+        get {
+            return z
+        }
+        
+        set {
+            z = newValue
+        }
+    }
+
+    var a : GLfloat {
+        get {
+            return w
+        }
+        
+        set {
+            w = newValue
+        }
+    }
+
+    func asGLVector4() -> GLKVector4 {
+        return GLKVector4Make(x, y, z, w)
+    }
+}
+
+struct PEFloat : Codable, DynamicNodeDecoding {
+    
+    var value : Float
+    
+    enum CodingKeys : String, CodingKey {
+        case value
+    }
+    
+    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .attribute
+    }
+    
+    var float : Float {
+        get {
+            return value
+        }
+        
+        set {
+            value = newValue
+        }
+    }
+    
+    init(_ val: Float) {
+        value = val
+    }
+    
+    init(_ val: Double) {
+        value = Float(val)
+    }
+    
+    static func +(left : PEFloat, right: PEFloat) -> PEFloat {
+        return PEFloat(left.value + right.value)
+    }
+    
+    static func +(left : Float, right: PEFloat) -> PEFloat {
+        return PEFloat(left + right.value)
+    }
+    
+    static func +(left : PEFloat, right: Float) -> PEFloat {
+        return PEFloat(left.value + right)
+    }
+    
+    static func +=( left : inout PEFloat, right: PEFloat) {
+        left.value += right.value
+    }
+    
+    static func -(left : PEFloat, right: PEFloat) -> PEFloat {
+        return PEFloat(left.value - right.value)
+    }
+    
+    static func -(left : Float, right: PEFloat) -> PEFloat {
+        return PEFloat(left - right.value)
+    }
+    
+    static func -(left : PEFloat, right: Float) -> PEFloat {
+        return PEFloat(left.value - right)
+    }
+    
+    static func -=( left : inout PEFloat, right: PEFloat) {
+        left.value -= right.value
+    }
+    
+    static func *(left : PEFloat, right: PEFloat) -> PEFloat {
+        return PEFloat(left.value * right.value)
+    }
+    
+    static func *(left : Float, right: PEFloat) -> PEFloat {
+        return PEFloat(left * right.value)
+    }
+    
+    static func *(left : PEFloat, right: Float) -> PEFloat {
+        return PEFloat(left.value * right)
+    }
+    
+    static func /(left : PEFloat, right: PEFloat) -> PEFloat {
+        return PEFloat(left.value / right.value)
+    }
+    
+    static func /(left : Float, right: PEFloat) -> PEFloat {
+        return PEFloat(left / right.value)
+    }
+    
+    static func /(left : PEFloat, right: Float) -> PEFloat {
+        return PEFloat(left.value / right)
+    }
+    
+    static func >(left : PEFloat, right: PEFloat) -> Bool {
+        return left.value > right.value
+    }
+    
+    static func >(left : PEFloat, right: Float) -> Bool {
+        return left.value > right
+    }
+
+    static func <(left : PEFloat, right: PEFloat) -> Bool {
+        return left.value < right.value
+    }
+    
+    static func >=(left : PEFloat, right: PEFloat) -> Bool {
+        return left.value >= right.value
+    }
+    
+    static func <=(left : PEFloat, right: PEFloat) -> Bool {
+        return left.value <= right.value
+    }
+
+    static func ==(left : PEFloat, right: PEFloat) -> Bool {
+        return left.value == right.value
+    }
+
+    static func !=(left : PEFloat, right: PEFloat) -> Bool {
+        return left.value != right.value
+    }
+
+    static func !=(left : Float, right: PEFloat) -> Bool {
+        return left != right.value
+    }
+
+    static func !=(left : PEFloat, right: Float) -> Bool {
+        return left.value != right
+    }
+
+}
+
+class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     
     /// Flags to enable/disable functionality
-    private var updateParticlePositionAndRotation : Bool
+    private var updateParticlePositionAndRotation : Bool = true
     
     /// Particle vars
-    private var textureFileName : String = ""
-    private var textureFileData : String = ""
-    private var tiffData : Data?
-    private var image : UIImage?
-    private var cgImage : CGImage?
-    private var emitterType : ParticleTypes = .particleTypeGravity
-    private var sourcePositionVariance : GLKVector2 = .init()
-    private var angle : GLfloat = 0.0
-    private var angleVariance : GLfloat = 0.0
-    private var speed : GLfloat = 0.0
-    private var speedVariance : GLfloat = 0.0
-    private var radialAcceleration : GLfloat = 0.0
-    private var tangentialAcceleration : GLfloat = 0.0
-    private var radialAccelVariance : GLfloat = 0.0
-    private var tangentialAccelVariance : GLfloat = 0.0
-    private var gravity : GLKVector2 = .init()
-    private var particleLifespan : GLfloat = 0.0
-    private var particleLifespanVariance : GLfloat = 0.0
-    private var startColor : GLKVector4 = GLKVector4()
-    private var startColorVariance : GLKVector4 = GLKVector4()
-    private var finishColor : GLKVector4 = .init()
-    private var finishColorVariance : GLKVector4 = .init()
-    private var startParticleSize : GLfloat = 0.0
-    private var startParticleSizeVariance : GLfloat = 0.0
-    private var finishParticleSize : GLfloat = 0.0
-    private var finishParticleSizeVariance : GLfloat = 0.0
-    private var maxParticles : GLuint = 0
-    private var emissionRate : GLfloat = 0.0
-    private var emitCounter : GLfloat = 0.0
-    private var elapsedTime : GLfloat = 0.0
-    private var rotationStart : GLfloat = 0.0
-    private var rotationStartVariance : GLfloat = 0.0
-    private var rotationEnd : GLfloat = 0.0
-    private var rotationEndVariance : GLfloat = 0.0
-    private var vertexArrayName : GLuint = 0
-    private var blendFuncSource : Int = 0
-    private var blendFuncDestination : Int = 0
-    private var opacityModifyRGB : Bool = false
-    private var premultiplied : Bool = false
-    private var hasAlpha : Bool = true
+    var textureFileName : String = ""
+    var textureFileData : String = ""
+    var tiffData : Data?
+    var image : UIImage?
+    var cgImage : CGImage?
+    var emitterType : ParticleTypes = .particleTypeGravity
+    var sourcePositionVariance : Vector2 = .zero
+    var angle : PEFloat = .init(0.0)
+    var angleVariance : PEFloat = .init(0.0)
+    var speed : PEFloat = .init(0.0)
+    var speedVariance : PEFloat = .init(0.0)
+    var radialAcceleration : PEFloat = .init(0.0)
+    var tangentialAcceleration : PEFloat = .init(0.0)
+    var radialAccelVariance : PEFloat = .init(0.0)
+    var tangentialAccelVariance : PEFloat = .init(0.0)
+    var gravity : Vector2 = .zero
+    var particleLifespan : PEFloat = .init(0.0)
+    var particleLifespanVariance : PEFloat = .init(0.0)
+    var startColor : Vector4 = .zero
+    var startColorVariance : Vector4 = .zero
+    var finishColor : Vector4 = .zero
+    var finishColorVariance : Vector4 = .zero
+    var startParticleSize : PEFloat = .init(0.0)
+    var startParticleSizeVariance : PEFloat = .init(0.0)
+    var finishParticleSize : PEFloat = .init(0.0)
+    var finishParticleSizeVariance : PEFloat = .init(0.0)
+    var maxParticles : GLuint = 0
+    var emissionRate : PEFloat = .init(0.0)
+    var emitCounter : PEFloat = .init(0.0)
+    var elapsedTime : PEFloat = .init(0.0)
+    var rotationStart : PEFloat = .init(0.0)
+    var rotationStartVariance : PEFloat = .init(0.0)
+    var rotationEnd : PEFloat = .init(0.0)
+    var rotationEndVariance : PEFloat = .init(0.0)
+    var vertexArrayName : GLuint = 0
+    var blendFuncSource : Int = 0
+    var blendFuncDestination : Int = 0
+    var opacityModifyRGB : Bool = false
+    var premultiplied : Bool = false
+    var hasAlpha : Bool = true
     
     /// Particle vars only used when a maxRadius value is provided.  These values are used for
     /// the special purpose of creating the spinning portal emitter
-    private var maxRadius : GLfloat  = 0.0               /// Max radius at which particles are drawn when rotating
-    private var maxRadiusVariance : GLfloat = 0.0        /// Variance of the maxRadius
-    private var radiusSpeed : GLfloat = 0.0              /// The speed at which a particle moves from maxRadius to minRadius
-    private var minRadius : GLfloat = 0.0                /// Radius from source below which a particle dies
-    private var rotatePerSecond : GLfloat = 0.0          /// Number of degress to rotate a particle around the source pos per second
-    private var rotatePerSecondVariance : GLfloat = 0.0  /// Variance in degrees for rotatePerSecond
+    var maxRadius : GLfloat  = 0.0               /// Max radius at which particles are drawn when rotating
+    var maxRadiusVariance : PEFloat = .init(0.0)        /// Variance of the maxRadius
+    var radiusSpeed : PEFloat = .init(0.0)              /// The speed at which a particle moves from maxRadius to minRadius
+    var minRadius : PEFloat = .init(0.0)                /// Radius from source below which a particle dies
+    var rotatePerSecond : PEFloat = .init(0.0)          /// Number of degress to rotate a particle around the source pos per second
+    var rotatePerSecondVariance : PEFloat = .init(0.0)  /// Variance in degrees for rotatePerSecond
     
     /// Particle Emitter Vars
-    private var active : Bool = false
-    private var vertexIndex : GLint = 0              /// Stores the index of the vertices being used for each particle
+    var active : Bool = false
+    var vertexIndex : GLint = 0              /// Stores the index of the vertices being used for each particle
     
     /// Render
     private var particles = Array<Particle>()         /// Array of particles that hold the particle emitters particle details
     private var quads = Array<ParticleQuad>()
-        private var quads2 = Array<ParticleQuad>() /// Array holding quad information for each particle : ParticleQuad
+    private var quads2 = Array<ParticleQuad>() /// Array holding quad information for each particle : ParticleQuad
     
     
-    var sourcePosition : GLKVector2 = .init()
+    var sourcePosition : Vector2 = .zero
     var particleCount : Int = 0
-    var duration : GLfloat = 0.0
+    var duration : PEFloat = .init(0.0)
     
     deinit {
         // Release the memory we are using for our vertex and particle arrays etc
@@ -149,25 +399,30 @@ class BaseParticleEmitter {
         self.particles.removeAll()
     }
     
-    init(withFile: String) throws {
-        updateParticlePositionAndRotation = true
-        
-        if let fileURL = Bundle.main.url(forResource: withFile, withExtension: nil) {
+    static func load(withFile: String) throws -> BaseParticleEmitter? {
+        if let fileURL = Bundle.main.url(forResource: withFile, withExtension: "pex") {
             let data = try Data(contentsOf: fileURL)
+
+            let decoder = XMLDecoder()
             
-            if let particleXML = XmlReader.dictionaryForXMLData(data: data) {
-                self.parse(particleConfig: particleXML)
-                self.setupArrays()
-                self.reset()
-            }
+            let result = try decoder.decode(BaseParticleEmitter.self,from: data)
+//
+//            if let particleXML = XmlReader.dictionaryForXMLData(data: data) {
+//                self.parse(particleConfig: particleXML)
+                result.setupArrays()
+                result.reset()
+            
+            return result
         }
+        
+        return nil
     }
     
-    func update(withDelta aDelta: GLfloat) {
+    func update(withDelta aDelta: PEFloat) {
         
         // If the emitter is active and the emission rate is greater than zero then emit particles
         if active && (emissionRate > 0) {
-            let rate : GLfloat = 1.0 / emissionRate
+            let rate : PEFloat = 1.0 / emissionRate
             
             if (particleCount < maxParticles) {
                 emitCounter += aDelta
@@ -196,7 +451,7 @@ class BaseParticleEmitter {
             var currentParticle : Particle = particles[index]
             
             // Reduce the life span of the particle
-            currentParticle.timeToLive -= aDelta
+            currentParticle.timeToLive -= aDelta.float
             
             // If the current particle is alive then update it
             if currentParticle.timeToLive > 0 {
@@ -216,7 +471,7 @@ class BaseParticleEmitter {
         }
     }
     
-    func updateParticle(atIndex index : Int, withDelta delta : GLfloat) {
+    func updateParticle(atIndex index : Int, withDelta delta : PEFloat) {
         
         // Get the particle for the current particle index
         var particle : Particle = particles[index]
@@ -259,7 +514,7 @@ class BaseParticleEmitter {
             tangential.y = newy
             tangential = GLKVector2MultiplyScalar(tangential, particle.tangentialAcceleration)
             
-            tmp = GLKVector2Add( GLKVector2Add(radial, tangential), gravity)
+            tmp = GLKVector2Add( GLKVector2Add(radial, tangential), gravity.asGLVector2())
             tmp = GLKVector2MultiplyScalar(tmp, delta)
             particle.direction = GLKVector2Add(particle.direction, tmp)
             tmp = GLKVector2MultiplyScalar(particle.direction, delta)
@@ -362,7 +617,7 @@ class BaseParticleEmitter {
         let vector : GLKVector2 = GLKVector2Make(cosf(newAngle), sinf(newAngle))
         
         // Calculate the vectorSpeed using the speed and speedVariance which has been passed in
-        let vectorSpeed : GLfloat = speed + speedVariance * randomMinus1To1()
+        let vectorSpeed : GLfloat = (speed + speedVariance).float * randomMinus1To1()
         
         // The particles direction vector is calculated by taking the vector calculated above and
         // multiplying that by the speed
@@ -420,6 +675,89 @@ class BaseParticleEmitter {
         particle.rotation = startA
         particle.rotationDelta = (endA - startA) / particle.timeToLive
     }
+    
+    func loadTexture() {
+        fatalError("loadTexture not implemented")
+    }
+    
+    func setupArrays() {
+        // Allocate the memory necessary for the particle emitter arrays
+        particles = Array()
+        
+        // By default the particle emitter is active when created
+        active = true
+        
+        // Set the particle count to zero
+        particleCount = 0
+        
+        // Reset the elapsed time
+        elapsedTime = 0
+    }
+    
+    // MARK: - Codable
+    
+    enum CodingKeys : String, CodingKey {
+        case emitterType
+        case sourcePosition
+        case sourcePositionVariance
+        case speed
+        case speedVariance
+        case particleLifespan
+        case particleLifespanVariance
+        case angle
+        case angleVariance
+        case gravity
+        case radialAcceleration
+        case tangentialAcceleration
+        case tangentialAccelVariance
+        case startColor
+        case startColorVariance
+        case finishColor
+        case finishColorVariance
+        case maxParticles
+        case startParticleSize
+        case startParticleSizeVariance
+        case finishParticleSize
+        case finishParticleSizeVariance
+        case duration
+        case blendFuncSource
+        case blendFuncDestination
+        
+        case maxRadius
+        case maxRadiusVariance
+        case minRadius
+        case rotatePerSecond
+        case rotatePerSecondVariance
+        case rotationStart
+        case rotationStartVariance
+        case rotationEnd
+        case rotationEndVariance
+    }
+    
+    enum ConfigCodingKeys : String, CodingKey {
+        case particleEmitterConfig
+    }
+    
+    static func nodeEncoding(for key: CodingKey) -> XMLEncoder.NodeEncoding {
+        return .attribute
+    }
+    
+    static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .elementOrAttribute
+    }
+
+
+//    func encode(to encoder: Encoder) throws {
+//
+//    }
+
+//    required init(from decoder: Decoder) throws {
+//        _ = try decoder.container(keyedBy: ConfigCodingKeys.self)
+//
+//            //.nestedContainer(keyedBy: CodingKeys.self, forKey: .particleEmitterConfig)
+//
+////        NSLog("container: \(container)")
+//    }
     
     func parse(particleConfig aConfig : Dictionary<String, AnyObject>) {
 //
@@ -531,24 +869,6 @@ class BaseParticleEmitter {
 //    }
 //
 //    [self loadTexture];
-    }
-    
-    func loadTexture() {
-        fatalError("loadTexture not implemented")
-    }
-    
-    func setupArrays() {
-        // Allocate the memory necessary for the particle emitter arrays
-        particles = Array()
-        
-        // By default the particle emitter is active when created
-        active = true
-        
-        // Set the particle count to zero
-        particleCount = 0
-        
-        // Reset the elapsed time
-        elapsedTime = 0
     }
     
 }

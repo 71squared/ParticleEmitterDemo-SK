@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -60,6 +60,29 @@
 		D06180F2260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */; };
 		D06180F9260F321F003ED0CD /* XmlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F8260F321F003ED0CD /* XmlReader.swift */; };
 		D06180FA260F321F003ED0CD /* XmlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F8260F321F003ED0CD /* XmlReader.swift */; };
+		D0618105260FF5C8003ED0CD /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = D0618104260FF5C8003ED0CD /* XMLCoder */; };
+		D061810A260FFFAF003ED0CD /* Winner Stars.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D11970239C00275F35 /* Winner Stars.pex */; };
+		D061810B260FFFAF003ED0CD /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
+		D061810C260FFFAF003ED0CD /* Into The Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C51970239C00275F35 /* Into The Blue.pex */; };
+		D061810D260FFFAF003ED0CD /* Foam.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C31970239C00275F35 /* Foam.pex */; };
+		D061810E260FFFAF003ED0CD /* Blue Galaxy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BF1970239C00275F35 /* Blue Galaxy.pex */; };
+		D061810F260FFFAF003ED0CD /* Trippy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D01970239C00275F35 /* Trippy.pex */; };
+		D0618110260FFFAF003ED0CD /* Plasma Glow.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CB1970239C00275F35 /* Plasma Glow.pex */; };
+		D0618111260FFFAF003ED0CD /* huo1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C41970239C00275F35 /* huo1.pex */; };
+		D0618112260FFFAF003ED0CD /* Real Popcorn.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CC1970239C00275F35 /* Real Popcorn.pex */; };
+		D0618113260FFFAF003ED0CD /* Touch Up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CF1970239C00275F35 /* Touch Up.pex */; };
+		D0618114260FFFAF003ED0CD /* Crazy Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C11970239C00275F35 /* Crazy Blue.pex */; };
+		D0618115260FFFAF003ED0CD /* The Sun.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CE1970239C00275F35 /* The Sun.pex */; };
+		D0618116260FFFAF003ED0CD /* wu1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D21970239C00275F35 /* wu1.pex */; };
+		D0618117260FFFAF003ED0CD /* JasonChoi_Swirl01.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */; };
+		D0618118260FFFAF003ED0CD /* Comet.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C01970239C00275F35 /* Comet.pex */; };
+		D0618119260FFFAF003ED0CD /* Blue Flame.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BE1970239C00275F35 /* Blue Flame.pex */; };
+		D061811A260FFFAF003ED0CD /* Shooting Fireball.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CD1970239C00275F35 /* Shooting Fireball.pex */; };
+		D061811B260FFFAF003ED0CD /* JasonChoi_Flash.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */; };
+		D061811C260FFFAF003ED0CD /* JasonChoi_rising up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */; };
+		D061811D260FFFAF003ED0CD /* Meks Blood Spill.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C91970239C00275F35 /* Meks Blood Spill.pex */; };
+		D061811E260FFFAF003ED0CD /* Electrons.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C21970239C00275F35 /* Electrons.pex */; };
+		D06181232610001F003ED0CD /* Comet.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C01970239C00275F35 /* Comet.pex */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0618105260FF5C8003ED0CD /* XMLCoder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +450,9 @@
 			dependencies = (
 			);
 			name = "ParticleEmitterDemo-SK-Swift";
+			packageProductDependencies = (
+				D0618104260FF5C8003ED0CD /* XMLCoder */,
+			);
 			productName = "ParticleEmitterDemo-SK-Swift";
 			productReference = D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -468,11 +495,9 @@
 					};
 					D06180A5260F237C003ED0CD = {
 						CreatedOnToolsVersion = 12.4;
-						ProvisioningStyle = Automatic;
 					};
 					D06180BB260F2380003ED0CD = {
 						CreatedOnToolsVersion = 12.4;
-						ProvisioningStyle = Automatic;
 						TestTargetID = D06180A5260F237C003ED0CD;
 					};
 				};
@@ -487,6 +512,9 @@
 				Base,
 			);
 			mainGroup = 8272B37C19701AFE00275F35;
+			packageReferences = (
+				D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */,
+			);
 			productRefGroup = 8272B38619701AFE00275F35 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -548,6 +576,7 @@
 				D06180B4260F237D003ED0CD /* Main.storyboard in Resources */,
 				D06180AB260F237D003ED0CD /* GameScene.sks in Resources */,
 				D06180B6260F2380003ED0CD /* Assets.xcassets in Resources */,
+				D06181232610001F003ED0CD /* Comet.pex in Resources */,
 				D06180AD260F237D003ED0CD /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +585,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0618114260FFFAF003ED0CD /* Crazy Blue.pex in Resources */,
+				D0618111260FFFAF003ED0CD /* huo1.pex in Resources */,
+				D061810A260FFFAF003ED0CD /* Winner Stars.pex in Resources */,
+				D0618110260FFFAF003ED0CD /* Plasma Glow.pex in Resources */,
+				D0618113260FFFAF003ED0CD /* Touch Up.pex in Resources */,
+				D0618117260FFFAF003ED0CD /* JasonChoi_Swirl01.pex in Resources */,
+				D0618119260FFFAF003ED0CD /* Blue Flame.pex in Resources */,
+				D0618116260FFFAF003ED0CD /* wu1.pex in Resources */,
+				D0618118260FFFAF003ED0CD /* Comet.pex in Resources */,
+				D0618115260FFFAF003ED0CD /* The Sun.pex in Resources */,
+				D061810C260FFFAF003ED0CD /* Into The Blue.pex in Resources */,
+				D061810D260FFFAF003ED0CD /* Foam.pex in Resources */,
+				D061810B260FFFAF003ED0CD /* Atomic Bubble.pex in Resources */,
+				D061810E260FFFAF003ED0CD /* Blue Galaxy.pex in Resources */,
+				D061811A260FFFAF003ED0CD /* Shooting Fireball.pex in Resources */,
+				D061811C260FFFAF003ED0CD /* JasonChoi_rising up.pex in Resources */,
+				D061810F260FFFAF003ED0CD /* Trippy.pex in Resources */,
+				D0618112260FFFAF003ED0CD /* Real Popcorn.pex in Resources */,
+				D061811E260FFFAF003ED0CD /* Electrons.pex in Resources */,
+				D061811B260FFFAF003ED0CD /* JasonChoi_Flash.pex in Resources */,
+				D061811D260FFFAF003ED0CD /* Meks Blood Spill.pex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,7 +783,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "ParticleEmitterDemo-SK/ParticleEmitterDemo-SK.pch";
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -748,7 +801,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "ParticleEmitterDemo-SK/ParticleEmitterDemo-SK.pch";
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -767,7 +823,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ParticleEmitterDemo-SKTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -782,7 +842,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ParticleEmitterDemo-SKTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -817,7 +881,10 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-Swift";
@@ -858,11 +925,15 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -897,7 +968,11 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK-SwiftTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-SwiftTests";
@@ -939,11 +1014,16 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK-SwiftTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-SwiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParticleEmitterDemo-SK-Swift.app/ParticleEmitterDemo-SK-Swift";
@@ -999,6 +1079,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MaxDesiatov/XMLCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0618104260FF5C8003ED0CD /* XMLCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */;
+			productName = XMLCoder;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8272B37D19701AFE00275F35 /* Project object */;
 }

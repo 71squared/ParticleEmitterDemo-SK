@@ -31,31 +31,44 @@ class ParticleEmitterDemo_SK_SwiftTests: XCTestCase {
         }
     }
     
-    func testBasic() {
+//    func testBasic() {
+//
+//        let testxml = """
+//            <sysmsg type="paymsg">
+//                <paymsg>
+//                    <list>1</list>
+//                    <list>2</list>
+//                    <list>3</list>
+//                    <list>4</list>
+//                    <list>5</list>
+//                    <list>6</list>
+//                    <fromusername><![CDATA[mango1]]></fromusername>
+//                    <tousername><![CDATA[mango2]]></tousername>
+//                    <paymsgid><![CDATA[]]></paymsgid>
+//                </paymsg>
+//            </sysmsg>
+//            """
+//        if let dic = XmlReader.dictionaryForXMLData(data: testxml.data(using: .utf8)!) {
+//
+//            NSLog("\(dic)")
+//            XCTAssertNotNil(dic)
+//        } else {
+//            XCTFail()
+//        }
+//    }
+
+    func testLoad() {
+        let configFile = "Comet"
         
-        let testxml = """
-            <sysmsg type="paymsg">
-                <paymsg>
-                    <list>1</list>
-                    <list>2</list>
-                    <list>3</list>
-                    <list>4</list>
-                    <list>5</list>
-                    <list>6</list>
-                    <fromusername><![CDATA[mango1]]></fromusername>
-                    <tousername><![CDATA[mango2]]></tousername>
-                    <paymsgid><![CDATA[]]></paymsgid>
-                </paymsg>
-            </sysmsg>
-            """
-        if let dic = XmlReader.dictionaryForXMLData(data: testxml.data(using: .utf8)!) {
+        do {
+            let emitter = try BaseParticleEmitter.load(withFile: configFile)
             
-            NSLog("\(dic)")
-            XCTAssertNotNil(dic)
-        } else {
+            XCTAssertEqual(emitter?.particleLifespan, 0.1974)
+        } catch {
+            NSLog("failed to load emitter: \(error)")
             XCTFail()
         }
+        
     }
-
 
 }
