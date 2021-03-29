@@ -45,6 +45,7 @@
 		8272B3F4197023DD00275F35 /* SKParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3F3197023DD00275F35 /* SKParticleEmitter.m */; };
 		8272B3F7197025E200275F35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8272B3F6197025E200275F35 /* libz.dylib */; };
 		8272B3F91970327500275F35 /* skParticleFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */; };
+		D040E7512611BEE700D94D88 /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = D040E7502611BEE700D94D88 /* Gzip */; };
 		D06180A9260F237D003ED0CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180A8260F237D003ED0CD /* AppDelegate.swift */; };
 		D06180AB260F237D003ED0CD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06180AA260F237D003ED0CD /* GameScene.sks */; };
 		D06180AD260F237D003ED0CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06180AC260F237D003ED0CD /* Actions.sks */; };
@@ -155,6 +156,7 @@
 		8272B3F5197024DA00275F35 /* ParticleEmitterDemo-SK.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParticleEmitterDemo-SK.pch"; sourceTree = "<group>"; };
 		8272B3F6197025E200275F35 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = skParticleFragmentShader.fsh; path = "../../Particle Emitter/skParticleFragmentShader.fsh"; sourceTree = "<group>"; };
+		D040E73F2611A21000D94D88 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParticleEmitterDemo-SK-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06180A8260F237D003ED0CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D06180AA260F237D003ED0CD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0618105260FF5C8003ED0CD /* XMLCoder in Frameworks */,
+				D040E7512611BEE700D94D88 /* Gzip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +223,7 @@
 				D06180A7260F237D003ED0CD /* ParticleEmitterDemo-SK-Swift */,
 				D06180BF260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests */,
 				8272B38619701AFE00275F35 /* Products */,
+				D040E73E2611A21000D94D88 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -367,6 +371,14 @@
 			path = SKParticleEmitter;
 			sourceTree = "<group>";
 		};
+		D040E73E2611A21000D94D88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D040E73F2611A21000D94D88 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D06180A7260F237D003ED0CD /* ParticleEmitterDemo-SK-Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +427,8 @@
 			dependencies = (
 			);
 			name = "ParticleEmitterDemo-SK";
+			packageProductDependencies = (
+			);
 			productName = "ParticleEmitterDemo-SK";
 			productReference = 8272B38519701AFE00275F35 /* ParticleEmitterDemo-SK.app */;
 			productType = "com.apple.product-type.application";
@@ -452,6 +466,7 @@
 			name = "ParticleEmitterDemo-SK-Swift";
 			packageProductDependencies = (
 				D0618104260FF5C8003ED0CD /* XMLCoder */,
+				D040E7502611BEE700D94D88 /* Gzip */,
 			);
 			productName = "ParticleEmitterDemo-SK-Swift";
 			productReference = D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */;
@@ -514,6 +529,7 @@
 			mainGroup = 8272B37C19701AFE00275F35;
 			packageReferences = (
 				D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */,
+				D040E7452611B48700D94D88 /* XCRemoteSwiftPackageReference "GzipSwift" */,
 			);
 			productRefGroup = 8272B38619701AFE00275F35 /* Products */;
 			projectDirPath = "";
@@ -1081,6 +1097,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D040E7452611B48700D94D88 /* XCRemoteSwiftPackageReference "GzipSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/1024jp/GzipSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
 		D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MaxDesiatov/XMLCoder.git";
@@ -1092,6 +1116,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D040E7502611BEE700D94D88 /* Gzip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D040E7452611B48700D94D88 /* XCRemoteSwiftPackageReference "GzipSwift" */;
+			productName = Gzip;
+		};
 		D0618104260FF5C8003ED0CD /* XMLCoder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */;

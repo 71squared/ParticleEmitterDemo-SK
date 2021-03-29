@@ -13,6 +13,7 @@
 import Foundation
 import CoreGraphics
 import SpriteKit
+import Gzip
 import XMLCoder
 
 // Particle type
@@ -53,20 +54,20 @@ enum ParticleTypes : Int, Codable, DynamicNodeDecoding {
 
 // Structure that holds the location and size for each point sprite
 struct PointSprite {
-    var x     : GLfloat
-    var y     : GLfloat
-    var s     : GLfloat
-    var t     : GLfloat
-    var color : GLKVector4
+    var x     : PEFloat
+    var y     : PEFloat
+    var s     : PEFloat
+    var t     : PEFloat
+    var color : Vector4
 }
 
 struct TexturedColoredVertex {
-    var vertex              : GLKVector2
-    var texture             : GLKVector2
-    var color               : GLKVector4
-    var particleSize        : GLfloat
-    var rotationRad         : GLfloat
-    var positionMultiplier  : GLKVector2
+    var vertex              : Vector2
+    var texture             : Vector2
+    var color               : Vector4
+    var particleSize        : PEFloat
+    var rotationRad         : PEFloat
+    var positionMultiplier  : Vector2
 }
 
 struct ParticleQuad {
@@ -78,22 +79,22 @@ struct ParticleQuad {
 
 // Structure used to hold particle specific information
 struct Particle {
-    var position                : GLKVector2
-    var direction               : GLKVector2
-    var startPos                : GLKVector2
-    var color                   : GLKVector4
-    var deltaColor              : GLKVector4
-    var rotation                : GLfloat
-    var rotationDelta           : GLfloat
-    var radialAcceleration      : GLfloat
-    var tangentialAcceleration  : GLfloat
-    var radius                  : GLfloat
-    var radiusDelta             : GLfloat
-    var angle                   : GLfloat
-    var degreesPerSecond        : GLfloat
-    var particleSize            : GLfloat
-    var particleSizeDelta       : GLfloat
-    var timeToLive              : GLfloat
+    var position                : Vector2
+    var direction               : Vector2
+    var startPos                : Vector2
+    var color                   : Vector4
+    var deltaColor              : Vector4
+    var rotation                : PEFloat
+    var rotationDelta           : PEFloat
+    var radialAcceleration      : PEFloat
+    var tangentialAcceleration  : PEFloat
+    var radius                  : PEFloat
+    var radiusDelta             : PEFloat
+    var angle                   : PEFloat
+    var degreesPerSecond        : PEFloat
+    var particleSize            : PEFloat
+    var particleSizeDelta       : PEFloat
+    var timeToLive              : PEFloat
 }
 
 // The particleEmitter allows you to define parameters that are used when generating particles.
@@ -109,8 +110,8 @@ struct Vector2 : Codable, DynamicNodeDecoding {
         return .attribute
     }
     
-    var x : GLfloat
-    var y : GLfloat
+    var x : Float
+    var y : Float
     
     enum CodingKeys : String, CodingKey {
         case x
@@ -119,12 +120,40 @@ struct Vector2 : Codable, DynamicNodeDecoding {
     
     static var zero : Vector2 {
         get {
-            return .init(x: 0.0, y: 0.0)
+            return .init(0.0, 0.0)
         }
     }
     
     func asGLVector2() -> GLKVector2 {
         return GLKVector2Make(x, y)
+    }
+    
+    init(_ x: PEFloat, _ y: PEFloat) {
+        self.x = x.float
+        self.y = y.float
+    }
+    
+    init(_ x: Double, _ y: Double) {
+        self.x = .init(x)
+        self.y = .init(y)
+    }
+    
+    init(_ x: Float, _ y: Float) {
+        self.x = .init(x)
+        self.y = .init(y)
+    }
+
+    init(_ glVec: GLKVector2) {
+        self.x = .init(glVec.x)
+        self.y = .init(glVec.y)
+    }
+    
+    static func -(left : Vector2, right: Vector2) -> Vector2 {
+        return Vector2(left.x - right.x, left.y - right.y)
+    }
+    
+    static func +(left : Vector2, right: Vector2) -> Vector2 {
+        return Vector2(left.x + right.x, left.y + right.y)
     }
 }
 
@@ -134,67 +163,62 @@ struct Vector4 : Codable, DynamicNodeDecoding {
         return .attribute
     }
     
-    var x : GLfloat
-    var y : GLfloat
-    var z : GLfloat
-    var w : GLfloat
+    var r : Float
+    var g : Float
+    var b : Float
+    var a : Float
 
     enum CodingKeys : String, CodingKey {
-        case x
-        case y
-        case z
-        case w
+        case r = "red"
+        case g = "green"
+        case b = "blue"
+        case a = "alpha"
+    }
+    
+    init(_ r: Float, _ g: Float, _ b: Float, _ a: Float) {
+        self.r = r
+        self.g = g
+        self.b = b
+        self.a = a
     }
     
     static var zero : Vector4 {
         get {
-            return .init(x: 0.0, y: 0.0, z: 0.0, w: 0.0)
+            return .init(0.0, 0.0, 0.0, 0.0)
         }
     }
     
-    var r : GLfloat {
-        get {
-            return x
-        }
-        
-        set {
-            x = newValue
-        }
-    }
-
-    var g : GLfloat {
-        get {
-            return y
-        }
-        
-        set {
-            y = newValue
-        }
-    }
-
-    var b : GLfloat {
-        get {
-            return z
-        }
-        
-        set {
-            z = newValue
-        }
-    }
-
-    var a : GLfloat {
-        get {
-            return w
-        }
-        
-        set {
-            w = newValue
-        }
-    }
-
     func asGLVector4() -> GLKVector4 {
-        return GLKVector4Make(x, y, z, w)
+        return GLKVector4Make(r, g, b, a)
     }
+}
+
+struct PEInt : Codable, DynamicNodeDecoding {
+    
+    var value : Int
+    
+    enum CodingKeys : String, CodingKey {
+        case value
+    }
+    
+    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .attribute
+    }
+    
+    init(_ val: Int) {
+        self.value = val
+    }
+    
+    var int : Int {
+        get {
+            return value
+        }
+        
+        set {
+            value = newValue
+        }
+    }
+
 }
 
 struct PEFloat : Codable, DynamicNodeDecoding {
@@ -321,14 +345,56 @@ struct PEFloat : Codable, DynamicNodeDecoding {
 
 }
 
+struct PETexture : Codable, DynamicNodeDecoding {
+    
+    var name : String
+    var data : String
+    
+    enum CodingKeys : String, CodingKey {
+        case name
+        case data
+    }
+    
+    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
+        return .attribute
+    }
+    
+    func inflated(data: Data) -> Data {
+        if data.count == 0 {
+            return data
+        }
+
+        do {
+            return try data.gunzipped()
+        } catch {
+            print(error.localizedDescription)
+            
+            return Data()
+        }
+    }
+
+    func texture() -> SKTexture? {
+        if name.count > 0 && data.count == 0 {
+            return SKTexture(imageNamed: name)
+        } else if data.count > 0 {
+            let tiffData = self.inflated(data: Data(base64Encoded: data)!)
+         
+            if let image = UIImage(data: tiffData) {
+                return SKTexture(image: image)
+            }
+        }
+        
+        return nil
+    }
+}
+
 class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     
     /// Flags to enable/disable functionality
     private var updateParticlePositionAndRotation : Bool = true
     
     /// Particle vars
-    var textureFileName : String = ""
-    var textureFileData : String = ""
+    var texture : PETexture
     var tiffData : Data?
     var image : UIImage?
     var cgImage : CGImage?
@@ -353,7 +419,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     var startParticleSizeVariance : PEFloat = .init(0.0)
     var finishParticleSize : PEFloat = .init(0.0)
     var finishParticleSizeVariance : PEFloat = .init(0.0)
-    var maxParticles : GLuint = 0
+    var maxParticles : PEInt = .init(0)
     var emissionRate : PEFloat = .init(0.0)
     var emitCounter : PEFloat = .init(0.0)
     var elapsedTime : PEFloat = .init(0.0)
@@ -362,15 +428,15 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     var rotationEnd : PEFloat = .init(0.0)
     var rotationEndVariance : PEFloat = .init(0.0)
     var vertexArrayName : GLuint = 0
-    var blendFuncSource : Int = 0
-    var blendFuncDestination : Int = 0
+    var blendFuncSource : PEInt = PEInt(0)
+    var blendFuncDestination : PEInt = PEInt(0)
     var opacityModifyRGB : Bool = false
     var premultiplied : Bool = false
     var hasAlpha : Bool = true
     
     /// Particle vars only used when a maxRadius value is provided.  These values are used for
     /// the special purpose of creating the spinning portal emitter
-    var maxRadius : GLfloat  = 0.0               /// Max radius at which particles are drawn when rotating
+    var maxRadius : PEFloat  = .init(0.0)               /// Max radius at which particles are drawn when rotating
     var maxRadiusVariance : PEFloat = .init(0.0)        /// Variance of the maxRadius
     var radiusSpeed : PEFloat = .init(0.0)              /// The speed at which a particle moves from maxRadius to minRadius
     var minRadius : PEFloat = .init(0.0)                /// Radius from source below which a particle dies
@@ -424,11 +490,11 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         if active && (emissionRate > 0) {
             let rate : PEFloat = 1.0 / emissionRate
             
-            if (particleCount < maxParticles) {
+            if (particleCount < maxParticles.int) {
                 emitCounter += aDelta
             }
             
-            while (particleCount < maxParticles && emitCounter > rate) {
+            while (particleCount < maxParticles.int && emitCounter > rate) {
                 _ = self.addParticle()
                 
                 emitCounter -= rate
@@ -451,7 +517,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             var currentParticle : Particle = particles[index]
             
             // Reduce the life span of the particle
-            currentParticle.timeToLive -= aDelta.float
+            currentParticle.timeToLive -= aDelta
             
             // If the current particle is alive then update it
             if currentParticle.timeToLive > 0 {
@@ -484,10 +550,10 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             particle.angle += particle.degreesPerSecond * delta
             particle.radius -= particle.radiusDelta * delta
             
-            particle.position = GLKVector2Make(sourcePosition.x - cosf(particle.angle) * particle.radius, sourcePosition.y - sinf(particle.angle) * particle.radius)
+            particle.position = Vector2(sourcePosition.x - cosf(particle.angle.float) * particle.radius, sourcePosition.y - sinf(particle.angle.float) * particle.radius)
             
             if (particle.radius < minRadius) {
-                particle.timeToLive = 0
+                particle.timeToLive = .init(0.0)
             }
             
         } else {
@@ -499,36 +565,32 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             
             
             // By default this emitters particles are moved relative to the emitter node position
-            let positionDifference = GLKVector2Subtract(particle.startPos, vec2Zero)
-            particle.position = GLKVector2Subtract(particle.position, positionDifference)
+            particle.position = particle.position - particle.startPos
             
             if particle.position.x > 0.0 || particle.position.y > 0.0 {
-                radial = GLKVector2Normalize(particle.position)
+                radial = GLKVector2Normalize(particle.position.asGLVector2())
             }
             
             tangential = radial
-            radial = GLKVector2MultiplyScalar(radial, particle.radialAcceleration)
+            radial = GLKVector2MultiplyScalar(radial, particle.radialAcceleration.float)
             
             let newy = tangential.x
             tangential.x = -tangential.y
             tangential.y = newy
-            tangential = GLKVector2MultiplyScalar(tangential, particle.tangentialAcceleration)
+            tangential = GLKVector2MultiplyScalar(tangential, particle.tangentialAcceleration.float)
             
             tmp = GLKVector2Add( GLKVector2Add(radial, tangential), gravity.asGLVector2())
-            tmp = GLKVector2MultiplyScalar(tmp, delta)
-            particle.direction = GLKVector2Add(particle.direction, tmp)
-            tmp = GLKVector2MultiplyScalar(particle.direction, delta)
-            particle.position = GLKVector2Add(particle.position, tmp)
-            
-            // Now apply the difference calculated early causing the particles to be relative in position to the emitter position
-            particle.position = GLKVector2Add(particle.position, positionDifference)
+            tmp = GLKVector2MultiplyScalar(tmp, delta.float)
+            particle.direction = particle.direction + Vector2(tmp)
+            tmp = GLKVector2MultiplyScalar(particle.direction.asGLVector2(), delta.float)
+            particle.position = particle.position + Vector2(tmp)
         }
         
         // Update the particles color
-        particle.color.r += (particle.deltaColor.r * delta)
-        particle.color.g += (particle.deltaColor.g * delta)
-        particle.color.b += (particle.deltaColor.b * delta)
-        particle.color.a += (particle.deltaColor.a * delta)
+        particle.color.r += (particle.deltaColor.r * delta.float)
+        particle.color.g += (particle.deltaColor.g * delta.float)
+        particle.color.b += (particle.deltaColor.b * delta.float)
+        particle.color.a += (particle.deltaColor.a * delta.float)
         
         //        var c: GLKVector4
         //
@@ -543,7 +605,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         
         // Update the particle size
         particle.particleSize += particle.particleSizeDelta * delta
-        particle.particleSize = max(0, particle.particleSize)
+        particle.particleSize.float = max(0.0, particle.particleSize.float)
         
         // Update the rotation of the particle
         particle.rotation += particle.rotationDelta * delta
@@ -562,26 +624,26 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     
     func stopParticleEmitter() {
         active = false
-        elapsedTime = 0
-        emitCounter = 0
+        elapsedTime = .init(0.0)
+        emitCounter = .init(0.0)
     }
     
     func reset() {
         active = true
-        elapsedTime = 0
+        elapsedTime = .init(0.0)
         
         for i in 0 ..< particleCount {
-            particles[i].timeToLive = 0
+            particles[i].timeToLive = .init(0.0)
         }
         
-        emitCounter = 0;
-        emissionRate = GLfloat(maxParticles) / particleLifespan
+        emitCounter = .init(0.0)
+        emissionRate = GLfloat(maxParticles.int) / particleLifespan
     }
     
     func addParticle() -> Bool {
         
         // If we have already reached the maximum number of particles then do nothing
-        if particleCount == maxParticles {
+        if particleCount == maxParticles.int {
             return false
         }
         
@@ -611,7 +673,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         
         // Init the direction of the particle.  The newAngle is calculated using the angle passed in and the
         // angle variance.
-        let newAngle : GLfloat = GLKMathDegreesToRadians(angle + angleVariance * randomMinus1To1())
+        let newAngle : GLfloat = GLKMathDegreesToRadians(angle.float + angleVariance.float * randomMinus1To1())
         
         // Create a new GLKVector2 using the newAngle
         let vector : GLKVector2 = GLKVector2Make(cosf(newAngle), sinf(newAngle))
@@ -621,29 +683,29 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         
         // The particles direction vector is calculated by taking the vector calculated above and
         // multiplying that by the speed
-        particle.direction = GLKVector2MultiplyScalar(vector, vectorSpeed)
+        particle.direction = Vector2(GLKVector2MultiplyScalar(vector, vectorSpeed))
         
         // Calculate the particles life span using the life span and variance passed in
-        particle.timeToLive = max(0, particleLifespan + particleLifespanVariance * randomMinus1To1())
+        particle.timeToLive = PEFloat(max(0, particleLifespan.float + particleLifespanVariance.float * randomMinus1To1()))
         
         // Set the default diameter of the particle from the source position
         particle.radius = maxRadius + maxRadiusVariance * randomMinus1To1()
         particle.radiusDelta = maxRadius / particle.timeToLive
-        particle.angle = GLKMathDegreesToRadians(angle + angleVariance * randomMinus1To1())
-        particle.degreesPerSecond = GLKMathDegreesToRadians(rotatePerSecond + rotatePerSecondVariance * randomMinus1To1())
+        particle.angle.float = GLKMathDegreesToRadians(angle.float + angleVariance.float * randomMinus1To1())
+        particle.degreesPerSecond.float = GLKMathDegreesToRadians(rotatePerSecond.float + rotatePerSecondVariance.float * randomMinus1To1())
         
         particle.radialAcceleration = radialAcceleration + radialAccelVariance * randomMinus1To1()
         particle.tangentialAcceleration = tangentialAcceleration + tangentialAccelVariance * randomMinus1To1()
         
         // Calculate the particle size using the start and finish particle sizes
-        let particleStartSize : GLfloat = startParticleSize + startParticleSizeVariance * randomMinus1To1()
-        let particleFinishSize : GLfloat = finishParticleSize + finishParticleSizeVariance * randomMinus1To1()
-        particle.particleSizeDelta = ((particleFinishSize - particleStartSize) / particle.timeToLive)
-        particle.particleSize = max(0, particleStartSize)
+        let particleStartSize : GLfloat = startParticleSize.float + startParticleSizeVariance.float * randomMinus1To1()
+        let particleFinishSize : GLfloat = finishParticleSize.float + finishParticleSizeVariance.float * randomMinus1To1()
+        particle.particleSizeDelta.float = ((particleFinishSize - particleStartSize) / particle.timeToLive.float)
+        particle.particleSize.float = max(0, particleStartSize)
         
         // Calculate the color the particle should have when it starts its life.  All the elements
         // of the start color passed in along with the variance are used to calculate the star color
-        var start : GLKVector4  = GLKVector4Make(0.0, 0.0, 0.0, 0.0)
+        var start : Vector4  = Vector4(0.0, 0.0, 0.0, 0.0)
         start.r = startColor.r + startColorVariance.r * randomMinus1To1()
         start.g = startColor.g + startColorVariance.g * randomMinus1To1()
         start.b = startColor.b + startColorVariance.b * randomMinus1To1()
@@ -664,15 +726,15 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         // update method
         
         particle.color = start
-        particle.deltaColor.r = ((end.r - start.r) / particle.timeToLive)
-        particle.deltaColor.g = ((end.g - start.g) / particle.timeToLive)
-        particle.deltaColor.b = ((end.b - start.b) / particle.timeToLive)
-        particle.deltaColor.a = ((end.a - start.a) / particle.timeToLive)
+        particle.deltaColor.r = ((end.r - start.r) / particle.timeToLive.float)
+        particle.deltaColor.g = ((end.g - start.g) / particle.timeToLive.float)
+        particle.deltaColor.b = ((end.b - start.b) / particle.timeToLive.float)
+        particle.deltaColor.a = ((end.a - start.a) / particle.timeToLive.float)
         
         // Calculate the rotation
-        let startA : GLfloat = rotationStart + rotationStartVariance * randomMinus1To1()
-        let endA : GLfloat = rotationEnd + rotationEndVariance * randomMinus1To1()
-        particle.rotation = startA
+        let startA : GLfloat = rotationStart.float + rotationStartVariance.float * randomMinus1To1()
+        let endA : GLfloat = rotationEnd.float + rotationEndVariance.float * randomMinus1To1()
+        particle.rotation.float = startA
         particle.rotationDelta = (endA - startA) / particle.timeToLive
     }
     
@@ -691,7 +753,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         particleCount = 0
         
         // Reset the elapsed time
-        elapsedTime = 0
+        elapsedTime.float = 0
     }
     
     // MARK: - Codable
@@ -702,7 +764,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         case sourcePositionVariance
         case speed
         case speedVariance
-        case particleLifespan
+        case particleLifespan = "particleLifeSpan"
         case particleLifespanVariance
         case angle
         case angleVariance
@@ -732,6 +794,8 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         case rotationStartVariance
         case rotationEnd
         case rotationEndVariance
+        
+        case texture
     }
     
     enum ConfigCodingKeys : String, CodingKey {

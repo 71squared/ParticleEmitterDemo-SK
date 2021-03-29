@@ -63,7 +63,17 @@ class ParticleEmitterDemo_SK_SwiftTests: XCTestCase {
         do {
             let emitter = try BaseParticleEmitter.load(withFile: configFile)
             
-            XCTAssertEqual(emitter?.particleLifespan, 0.1974)
+            XCTAssertEqual(emitter?.particleLifespan.float, 0.1974)
+            XCTAssertEqual(emitter?.startColor.r, 0.83)
+            XCTAssertEqual(emitter?.startParticleSize.float, 41.68)
+            XCTAssertEqual(emitter?.blendFuncSource.int, 770)
+            
+            if let texture = emitter?.texture.texture() {
+                XCTAssertEqual(texture.size().width, 64.0)
+                XCTAssertEqual(texture.size().height, 64.0)
+            } else {
+                XCTFail()
+            }
         } catch {
             NSLog("failed to load emitter: \(error)")
             XCTFail()
