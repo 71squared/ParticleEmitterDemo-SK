@@ -46,6 +46,26 @@
 		8272B3F7197025E200275F35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8272B3F6197025E200275F35 /* libz.dylib */; };
 		8272B3F91970327500275F35 /* skParticleFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */; };
 		D040E7512611BEE700D94D88 /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = D040E7502611BEE700D94D88 /* Gzip */; };
+		D040E7562611CE6000D94D88 /* JasonChoi_Swirl01.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */; };
+		D040E7572611CE6000D94D88 /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
+		D040E7582611CE6000D94D88 /* huo1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C41970239C00275F35 /* huo1.pex */; };
+		D040E7592611CE6000D94D88 /* JasonChoi_Flash.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */; };
+		D040E75A2611CE6000D94D88 /* Crazy Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C11970239C00275F35 /* Crazy Blue.pex */; };
+		D040E75B2611CE6000D94D88 /* Into The Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C51970239C00275F35 /* Into The Blue.pex */; };
+		D040E75C2611CE6000D94D88 /* Foam.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C31970239C00275F35 /* Foam.pex */; };
+		D040E75D2611CE6000D94D88 /* Blue Galaxy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BF1970239C00275F35 /* Blue Galaxy.pex */; };
+		D040E75E2611CE6000D94D88 /* Electrons.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C21970239C00275F35 /* Electrons.pex */; };
+		D040E75F2611CE6000D94D88 /* Blue Flame.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BE1970239C00275F35 /* Blue Flame.pex */; };
+		D040E7602611CE6000D94D88 /* Meks Blood Spill.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C91970239C00275F35 /* Meks Blood Spill.pex */; };
+		D040E7612611CE6000D94D88 /* JasonChoi_rising up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */; };
+		D040E7662611CE6700D94D88 /* wu1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D21970239C00275F35 /* wu1.pex */; };
+		D040E7672611CE6700D94D88 /* Shooting Fireball.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CD1970239C00275F35 /* Shooting Fireball.pex */; };
+		D040E7682611CE6700D94D88 /* The Sun.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CE1970239C00275F35 /* The Sun.pex */; };
+		D040E7692611CE6700D94D88 /* Touch Up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CF1970239C00275F35 /* Touch Up.pex */; };
+		D040E76A2611CE6700D94D88 /* Winner Stars.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D11970239C00275F35 /* Winner Stars.pex */; };
+		D040E76B2611CE6700D94D88 /* Plasma Glow.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CB1970239C00275F35 /* Plasma Glow.pex */; };
+		D040E76C2611CE6700D94D88 /* Real Popcorn.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CC1970239C00275F35 /* Real Popcorn.pex */; };
+		D040E76D2611CE6700D94D88 /* Trippy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D01970239C00275F35 /* Trippy.pex */; };
 		D06180A9260F237D003ED0CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180A8260F237D003ED0CD /* AppDelegate.swift */; };
 		D06180AB260F237D003ED0CD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06180AA260F237D003ED0CD /* GameScene.sks */; };
 		D06180AD260F237D003ED0CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06180AC260F237D003ED0CD /* Actions.sks */; };
@@ -588,12 +608,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D040E75E2611CE6000D94D88 /* Electrons.pex in Resources */,
+				D040E75D2611CE6000D94D88 /* Blue Galaxy.pex in Resources */,
+				D040E75A2611CE6000D94D88 /* Crazy Blue.pex in Resources */,
 				D06180EB260F2432003ED0CD /* skParticleFragmentShader.fsh in Resources */,
+				D040E7592611CE6000D94D88 /* JasonChoi_Flash.pex in Resources */,
 				D06180B4260F237D003ED0CD /* Main.storyboard in Resources */,
+				D040E76C2611CE6700D94D88 /* Real Popcorn.pex in Resources */,
+				D040E75F2611CE6000D94D88 /* Blue Flame.pex in Resources */,
+				D040E7692611CE6700D94D88 /* Touch Up.pex in Resources */,
+				D040E7602611CE6000D94D88 /* Meks Blood Spill.pex in Resources */,
 				D06180AB260F237D003ED0CD /* GameScene.sks in Resources */,
 				D06180B6260F2380003ED0CD /* Assets.xcassets in Resources */,
 				D06181232610001F003ED0CD /* Comet.pex in Resources */,
+				D040E7682611CE6700D94D88 /* The Sun.pex in Resources */,
+				D040E75B2611CE6000D94D88 /* Into The Blue.pex in Resources */,
+				D040E76D2611CE6700D94D88 /* Trippy.pex in Resources */,
+				D040E7662611CE6700D94D88 /* wu1.pex in Resources */,
+				D040E7572611CE6000D94D88 /* Atomic Bubble.pex in Resources */,
+				D040E7582611CE6000D94D88 /* huo1.pex in Resources */,
+				D040E76B2611CE6700D94D88 /* Plasma Glow.pex in Resources */,
+				D040E7612611CE6000D94D88 /* JasonChoi_rising up.pex in Resources */,
+				D040E7672611CE6700D94D88 /* Shooting Fireball.pex in Resources */,
+				D040E7562611CE6000D94D88 /* JasonChoi_Swirl01.pex in Resources */,
+				D040E75C2611CE6000D94D88 /* Foam.pex in Resources */,
 				D06180AD260F237D003ED0CD /* Actions.sks in Resources */,
+				D040E76A2611CE6700D94D88 /* Winner Stars.pex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

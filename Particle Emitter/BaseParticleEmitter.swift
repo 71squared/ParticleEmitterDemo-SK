@@ -33,7 +33,7 @@ enum ParticleTypes : Int, Codable, DynamicNodeDecoding {
     enum DecodeError : Error {
         case ParticleTypeError
     }
-
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
@@ -49,25 +49,25 @@ enum ParticleTypes : Int, Codable, DynamicNodeDecoding {
         
         throw DecodeError.ParticleTypeError
     }
-
+    
 }
 
 // Structure that holds the location and size for each point sprite
 struct PointSprite {
-    var x     : PEFloat
-    var y     : PEFloat
-    var s     : PEFloat
-    var t     : PEFloat
-    var color : Vector4
+    var x     : PEFloat = .init(0.0)
+    var y     : PEFloat = .init(0.0)
+    var s     : PEFloat = .init(0.0)
+    var t     : PEFloat = .init(0.0)
+    var color : Vector4 = .zero
 }
 
 struct TexturedColoredVertex {
-    var vertex              : Vector2
-    var texture             : Vector2
-    var color               : Vector4
-    var particleSize        : PEFloat
-    var rotationRad         : PEFloat
-    var positionMultiplier  : Vector2
+    var vertex              : Vector2 = .zero
+    var texture             : Vector2 = .zero
+    var color               : Vector4 = .zero
+    var particleSize        : PEFloat = .init(0.0)
+    var rotationRad         : PEFloat = .init(0.0)
+    var positionMultiplier  : Vector2 = .zero
 }
 
 struct ParticleQuad {
@@ -79,22 +79,22 @@ struct ParticleQuad {
 
 // Structure used to hold particle specific information
 struct Particle {
-    var position                : Vector2
-    var direction               : Vector2
-    var startPos                : Vector2
-    var color                   : Vector4
-    var deltaColor              : Vector4
-    var rotation                : PEFloat
-    var rotationDelta           : PEFloat
-    var radialAcceleration      : PEFloat
-    var tangentialAcceleration  : PEFloat
-    var radius                  : PEFloat
-    var radiusDelta             : PEFloat
-    var angle                   : PEFloat
-    var degreesPerSecond        : PEFloat
-    var particleSize            : PEFloat
-    var particleSizeDelta       : PEFloat
-    var timeToLive              : PEFloat
+    var position                : Vector2 = .zero
+    var direction               : Vector2 = .zero
+    var startPos                : Vector2 = .zero
+    var color                   : Vector4 = .zero
+    var deltaColor              : Vector4 = .zero
+    var rotation                : PEFloat = .init(0.0)
+    var rotationDelta           : PEFloat = .init(0.0)
+    var radialAcceleration      : PEFloat = .init(0.0)
+    var tangentialAcceleration  : PEFloat = .init(0.0)
+    var radius                  : PEFloat = .init(0.0)
+    var radiusDelta             : PEFloat = .init(0.0)
+    var angle                   : PEFloat = .init(0.0)
+    var degreesPerSecond        : PEFloat = .init(0.0)
+    var particleSize            : PEFloat = .init(0.0)
+    var particleSizeDelta       : PEFloat = .init(0.0)
+    var timeToLive              : PEFloat = .init(0.0)
 }
 
 // The particleEmitter allows you to define parameters that are used when generating particles.
@@ -142,7 +142,7 @@ struct Vector2 : Codable, DynamicNodeDecoding {
         self.x = .init(x)
         self.y = .init(y)
     }
-
+    
     init(_ glVec: GLKVector2) {
         self.x = .init(glVec.x)
         self.y = .init(glVec.y)
@@ -167,7 +167,7 @@ struct Vector4 : Codable, DynamicNodeDecoding {
     var g : Float
     var b : Float
     var a : Float
-
+    
     enum CodingKeys : String, CodingKey {
         case r = "red"
         case g = "green"
@@ -190,6 +190,10 @@ struct Vector4 : Codable, DynamicNodeDecoding {
     
     func asGLVector4() -> GLKVector4 {
         return GLKVector4Make(r, g, b, a)
+    }
+    
+    func asUIColor() -> UIColor {
+        return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
     }
 }
 
@@ -218,7 +222,7 @@ struct PEInt : Codable, DynamicNodeDecoding {
             value = newValue
         }
     }
-
+    
 }
 
 struct PEFloat : Codable, DynamicNodeDecoding {
@@ -314,7 +318,7 @@ struct PEFloat : Codable, DynamicNodeDecoding {
     static func >(left : PEFloat, right: Float) -> Bool {
         return left.value > right
     }
-
+    
     static func <(left : PEFloat, right: PEFloat) -> Bool {
         return left.value < right.value
     }
@@ -326,23 +330,23 @@ struct PEFloat : Codable, DynamicNodeDecoding {
     static func <=(left : PEFloat, right: PEFloat) -> Bool {
         return left.value <= right.value
     }
-
+    
     static func ==(left : PEFloat, right: PEFloat) -> Bool {
         return left.value == right.value
     }
-
+    
     static func !=(left : PEFloat, right: PEFloat) -> Bool {
         return left.value != right.value
     }
-
+    
     static func !=(left : Float, right: PEFloat) -> Bool {
         return left != right.value
     }
-
+    
     static func !=(left : PEFloat, right: Float) -> Bool {
         return left.value != right
     }
-
+    
 }
 
 struct PETexture : Codable, DynamicNodeDecoding {
@@ -363,7 +367,7 @@ struct PETexture : Codable, DynamicNodeDecoding {
         if data.count == 0 {
             return data
         }
-
+        
         do {
             return try data.gunzipped()
         } catch {
@@ -372,29 +376,44 @@ struct PETexture : Codable, DynamicNodeDecoding {
             return Data()
         }
     }
-
-    func texture() -> SKTexture? {
+    
+    func image() -> UIImage? {
         if name.count > 0 && data.count == 0 {
-            return SKTexture(imageNamed: name)
+            return UIImage(named: name)
         } else if data.count > 0 {
             let tiffData = self.inflated(data: Data(base64Encoded: data)!)
-         
-            if let image = UIImage(data: tiffData) {
-                return SKTexture(image: image)
-            }
+            
+            return UIImage(data: tiffData)
+        }
+        
+        return nil
+    }
+    
+    func texture() -> SKTexture? {
+        if let image = self.image() {
+            return SKTexture(image: image)
         }
         
         return nil
     }
 }
 
+protocol BaseParticleEmitterDelegate {
+    func addParticle()
+    func removeParticle(atIndex index : Int)
+}
+
 class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
+    
+    /// Delegate
+    ///
+    var delegate : BaseParticleEmitterDelegate?
     
     /// Flags to enable/disable functionality
     private var updateParticlePositionAndRotation : Bool = true
     
     /// Particle vars
-    var texture : PETexture
+    var textureDetails : PETexture?
     var tiffData : Data?
     var image : UIImage?
     var cgImage : CGImage?
@@ -448,7 +467,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     var vertexIndex : GLint = 0              /// Stores the index of the vertices being used for each particle
     
     /// Render
-    private var particles = Array<Particle>()         /// Array of particles that hold the particle emitters particle details
+    var particles = Array<Particle>()         /// Array of particles that hold the particle emitters particle details
     private var quads = Array<ParticleQuad>()
     private var quads2 = Array<ParticleQuad>() /// Array holding quad information for each particle : ParticleQuad
     
@@ -465,18 +484,17 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         self.particles.removeAll()
     }
     
-    static func load(withFile: String) throws -> BaseParticleEmitter? {
+    static func load(withFile: String, delegate: BaseParticleEmitterDelegate) throws -> BaseParticleEmitter? {
         if let fileURL = Bundle.main.url(forResource: withFile, withExtension: "pex") {
             let data = try Data(contentsOf: fileURL)
 
             let decoder = XMLDecoder()
             
             let result = try decoder.decode(BaseParticleEmitter.self,from: data)
-//
-//            if let particleXML = XmlReader.dictionaryForXMLData(data: data) {
-//                self.parse(particleConfig: particleXML)
-                result.setupArrays()
-                result.reset()
+
+            result.delegate = delegate
+            
+            result.postParseInit()
             
             return result
         }
@@ -495,14 +513,14 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             }
             
             while (particleCount < maxParticles.int && emitCounter > rate) {
-                _ = self.addParticle()
+                self.addParticle()
                 
                 emitCounter -= rate
             }
             
             elapsedTime += aDelta
             
-            if (duration != -1 && duration < elapsedTime) {
+            if (duration != -1.0 && duration < elapsedTime) {
                 self.stopParticleEmitter()
             }
         }
@@ -514,13 +532,11 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         while index < particleCount {
             
             // Get the particle for the current particle index
-            var currentParticle : Particle = particles[index]
-            
             // Reduce the life span of the particle
-            currentParticle.timeToLive -= aDelta
+            particles[index].timeToLive -= aDelta
             
             // If the current particle is alive then update it
-            if currentParticle.timeToLive > 0 {
+            if particles[index].timeToLive > 0 {
                 
                 self.updateParticle(atIndex : index, withDelta : aDelta)
                 
@@ -559,10 +575,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         } else {
             var tmp, radial, tangential : GLKVector2
             
-            let vec2Zero = GLKVector2Make(0.0, 0.0)
-            
-            radial = vec2Zero
-            
+            radial = GLKVector2Make(0.0, 0.0)
             
             // By default this emitters particles are moved relative to the emitter node position
             particle.position = particle.position - particle.startPos
@@ -611,7 +624,6 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         particle.rotation += particle.rotationDelta * delta
         
         particles[index] = particle
-        
     }
     
     func removeParticle(atIndex index : Int) {
@@ -620,31 +632,33 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         }
         
         particleCount -= 1
+        
+        delegate?.removeParticle(atIndex: index)
     }
     
     func stopParticleEmitter() {
         active = false
-        elapsedTime = .init(0.0)
-        emitCounter = .init(0.0)
+        elapsedTime.float = 0.0
+        emitCounter.float = 0.0
     }
     
     func reset() {
         active = true
-        elapsedTime = .init(0.0)
+        elapsedTime.float = 0.0
         
         for i in 0 ..< particleCount {
-            particles[i].timeToLive = .init(0.0)
+            particles[i].timeToLive.float = 0.0
         }
         
-        emitCounter = .init(0.0)
+        emitCounter.float = 0.0
         emissionRate = GLfloat(maxParticles.int) / particleLifespan
     }
     
-    func addParticle() -> Bool {
+    func addParticle() {
         
         // If we have already reached the maximum number of particles then do nothing
         if particleCount == maxParticles.int {
-            return false
+            return
         }
         
         // Take the next particle out of the particle pool we have created and initialize it
@@ -652,9 +666,9 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         
         // Increment the particle count
         particleCount += 1
-        
-        // Return true to show that a particle has been created
-        return true
+
+        // tell the delegate to add it's corresponding visualisation.
+        self.delegate?.addParticle()
     }
     
     func randomMinus1To1() -> GLfloat {
@@ -738,13 +752,9 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         particle.rotationDelta = (endA - startA) / particle.timeToLive
     }
     
-    func loadTexture() {
-        fatalError("loadTexture not implemented")
-    }
-    
     func setupArrays() {
         // Allocate the memory necessary for the particle emitter arrays
-        particles = Array()
+        particles = Array<Particle>(repeating: Particle(), count: maxParticles.int)
         
         // By default the particle emitter is active when created
         active = true
@@ -784,7 +794,6 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         case duration
         case blendFuncSource
         case blendFuncDestination
-        
         case maxRadius
         case maxRadiusVariance
         case minRadius
@@ -794,8 +803,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         case rotationStartVariance
         case rotationEnd
         case rotationEndVariance
-        
-        case texture
+        case textureDetails = "texture"
     }
     
     enum ConfigCodingKeys : String, CodingKey {
@@ -810,129 +818,42 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         return .elementOrAttribute
     }
 
-
-//    func encode(to encoder: Encoder) throws {
-//
-//    }
-
-//    required init(from decoder: Decoder) throws {
-//        _ = try decoder.container(keyedBy: ConfigCodingKeys.self)
-//
-//            //.nestedContainer(keyedBy: CodingKeys.self, forKey: .particleEmitterConfig)
-//
-////        NSLog("container: \(container)")
-//    }
-    
-    func parse(particleConfig aConfig : Dictionary<String, AnyObject>) {
-//
-//    TBXMLElement *rootXMLElement = aConfig.rootXMLElement;
-//
-//    // Make sure we have a root element or we cant process this file
-//    NSAssert(rootXMLElement, @"ERROR - ParticleEmitter: Could not find root element in particle config file.");
-//
-//
-//    // Load all of the values from the XML file into the particle emitter.  The functions below are using the
-//    // TBXMLAdditions category.  This adds convenience methods to TBXML to help cut down on the code in this method.
-//    emitterType                 = TBXML_INT     (rootXMLElement, @"emitterType");
-//    sourcePosition              = TBXML_VEC2    (rootXMLElement, @"sourcePosition");
-//    sourcePositionVariance      = TBXML_VEC2    (rootXMLElement, @"sourcePositionVariance");
-//    speed                       = TBXML_FLOAT   (rootXMLElement, @"speed");
-//    speedVariance               = TBXML_FLOAT   (rootXMLElement, @"speedVariance");
-//    particleLifespan            = TBXML_FLOAT   (rootXMLElement, @"particleLifeSpan");
-//    particleLifespanVariance    = TBXML_FLOAT   (rootXMLElement, @"particleLifespanVariance");
-//    angle                       = TBXML_FLOAT   (rootXMLElement, @"angle");
-//    angleVariance               = TBXML_FLOAT   (rootXMLElement, @"angleVariance");
-//    gravity                     = TBXML_VEC2    (rootXMLElement, @"gravity");
-//    radialAcceleration          = TBXML_FLOAT   (rootXMLElement, @"radialAcceleration");
-//    tangentialAcceleration      = TBXML_FLOAT   (rootXMLElement, @"tangentialAcceleration");
-//    tangentialAccelVariance     = TBXML_FLOAT   (rootXMLElement, @"tangentialAccelVariance");
-//    startColor                  = TBXML_VEC4    (rootXMLElement, @"startColor");
-//    startColorVariance          = TBXML_VEC4    (rootXMLElement, @"startColorVariance");
-//    finishColor                 = TBXML_VEC4    (rootXMLElement, @"finishColor");
-//    finishColorVariance         = TBXML_VEC4    (rootXMLElement, @"finishColorVariance");
-//    maxParticles                = TBXML_FLOAT   (rootXMLElement, @"maxParticles");
-//    startParticleSize           = TBXML_FLOAT   (rootXMLElement, @"startParticleSize");
-//    startParticleSizeVariance   = TBXML_FLOAT   (rootXMLElement, @"startParticleSizeVariance");
-//    finishParticleSize          = TBXML_FLOAT   (rootXMLElement, @"finishParticleSize");
-//    finishParticleSizeVariance  = TBXML_FLOAT   (rootXMLElement, @"finishParticleSizeVariance");
-//    duration                    = TBXML_FLOAT   (rootXMLElement, @"duration");
-//    blendFuncSource             = TBXML_INT     (rootXMLElement, @"blendFuncSource");
-//    blendFuncDestination        = TBXML_INT     (rootXMLElement, @"blendFuncDestination");
-//
-//    // These paramters are used when you want to have the particles spinning around the source location
-//    maxRadius                   = TBXML_FLOAT   (rootXMLElement, @"maxRadius");
-//    maxRadiusVariance           = TBXML_FLOAT   (rootXMLElement, @"maxRadiusVariance");
-//    minRadius                   = TBXML_FLOAT   (rootXMLElement, @"minRadius");
-//    rotatePerSecond             = TBXML_FLOAT   (rootXMLElement, @"rotatePerSecond");
-//    rotatePerSecondVariance     = TBXML_FLOAT   (rootXMLElement, @"rotatePerSecondVariance");
-//    rotationStart               = TBXML_FLOAT   (rootXMLElement, @"rotationStart");
-//    rotationStartVariance       = TBXML_FLOAT   (rootXMLElement, @"rotationStartVariance");
-//    rotationEnd                 = TBXML_FLOAT   (rootXMLElement, @"rotationEnd");
-//    rotationEndVariance         = TBXML_FLOAT   (rootXMLElement, @"rotationEndVariance");
-//
-//    // Calculate the emission rate
-//    emissionRate                = maxParticles / particleLifespan;
-//    emitCounter                 = 0;
-//
-//
-//    // First thing to grab is the texture that is to be used for the point sprite
-//    TBXMLElement *element = TBXML_CHILD(rootXMLElement, @"texture");
-//    if (element) {
-//    _textureFileName = TBXML_ATTRIB_STRING(element, @"name");
-//    _textureFileData = TBXML_ATTRIB_STRING(element, @"data");
-//
-//    NSError *error;
-//
-//    if (_textureFileName && !_textureFileData.length) {
-//    // Get path to resource
-//    NSString *path = [[NSBundle mainBundle] pathForResource:_textureFileName ofType:nil];
-//
-//    // If no path is passed back then something is wrong
-//    NSAssert1(path, @"Unable to find texture file: %@", path);
-//
-//    // Create a new texture which is going to be used as the texture for the point sprites. As there is
-//    // no texture data in the file, this is done using an external image file
-//    _tiffData = [[NSData alloc] initWithContentsOfFile:path options:NSDataReadingUncached error:&error];
-//
-//    // Throw assersion error if loading texture failed
-//    NSAssert(!error, @"Unable to load texture");
-//    }
-//
-//    // If texture data is present in the file then create the texture image from that data rather than an external file
-//    else if (_textureFileData.length) {
-//    // Decode compressed tiff data
-//    _tiffData = [[[NSData alloc] initWithBase64EncodedString:_textureFileData] gzipInflate];
-//    }
-//
-//
-//    // Create a UIImage from the tiff data to extract colorspace and alpha info
-//    UIImage *image = [UIImage imageWithData:_tiffData];
-//    _cgImage = [image CGImage];
-//    CGImageAlphaInfo info = CGImageGetAlphaInfo(image.CGImage);
-//    CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
-//
-//    // Detect if the image contains alpha data
-//    _hasAlpha = ((info == kCGImageAlphaPremultipliedLast) ||
-//    (info == kCGImageAlphaPremultipliedFirst) ||
-//    (info == kCGImageAlphaLast) ||
-//    (info == kCGImageAlphaFirst) ? YES : NO);
-//
-//    // Detect if alpha data is premultiplied
-//    _premultiplied = colorSpace && _hasAlpha;
-//
-//    // Is opacity modification required
-//    _opacityModifyRGB = NO;
-//    if (blendFuncSource == GL_ONE && blendFuncDestination == GL_ONE_MINUS_SRC_ALPHA) {
-//    if (_premultiplied)
-//    _opacityModifyRGB = YES;
-//    else {
-//    blendFuncSource = GL_SRC_ALPHA;
-//    blendFuncDestination = GL_ONE_MINUS_SRC_ALPHA;
-//    }
-//    }
-//    }
-//
-//    [self loadTexture];
+    private func postParseInit() {
+        // Calculate the emission rate
+        emissionRate.float = Float(maxParticles.int) / particleLifespan.float
+        emitCounter.float = 0
+        
+        // Create a UIImage from the tiff data to extract colorspace and alpha info
+        if let image = self.textureDetails?.image() {
+            
+            if let cgImage = image.cgImage {
+                let info = cgImage.alphaInfo
+                let space = cgImage.colorSpace
+                
+                // Detect if the image contains alpha data
+                self.hasAlpha = info == .premultipliedLast ||
+                    info == .premultipliedFirst ||
+                    info == .last ||
+                    info == .first
+                
+                // Detect if alpha data is premultiplied
+                self.premultiplied = space != .none && self.hasAlpha
+            }
+        }
+        
+        // Is opacity modification required
+        opacityModifyRGB = false
+        
+        if (blendFuncSource.int == GL_ONE && blendFuncDestination.int == GL_ONE_MINUS_SRC_ALPHA) {
+            if premultiplied {
+                opacityModifyRGB = true
+            } else {
+                blendFuncSource.int = Int(GL_SRC_ALPHA)
+                blendFuncDestination.int = Int(GL_ONE_MINUS_SRC_ALPHA)
+            }
+        }
+        
+        self.setupArrays()
+        self.reset()
     }
-    
 }

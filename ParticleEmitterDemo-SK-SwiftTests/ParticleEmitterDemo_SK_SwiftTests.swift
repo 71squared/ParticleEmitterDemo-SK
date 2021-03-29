@@ -9,7 +9,15 @@
 import XCTest
 @testable import ParticleEmitterDemo_SK_Swift
 
-class ParticleEmitterDemo_SK_SwiftTests: XCTestCase {
+class ParticleEmitterDemo_SK_SwiftTests: XCTestCase , BaseParticleEmitterDelegate {
+    func removeParticle(atIndex index: Int) {
+    
+    }
+    
+    func addParticle() {
+        
+    }
+    
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -58,21 +66,49 @@ class ParticleEmitterDemo_SK_SwiftTests: XCTestCase {
 //    }
 
     func testLoad() {
-        let configFile = "Comet"
+        let configFiles = [
+            "Atomic Bubble",
+            "Blue Flame",
+            "Blue Galaxy",
+            "Comet",
+            "Crazy Blue",
+            "Electrons",
+            "Foam",
+            "Into The Blue",
+            "JasonChoi_Flash",
+            "JasonChoi_Swirl01",
+            "JasonChoi_rising up",
+            "Meks Blood Spill",
+            "Plasma Glow",
+            "Real Popcorn",
+            "Shooting Fireball",
+            "The Sun",
+            "Touch Up",
+            "Trippy",
+            "Winner Stars",
+            "huo1",
+            "wu1"
+        ]
+        
         
         do {
-            let emitter = try BaseParticleEmitter.load(withFile: configFile)
-            
-            XCTAssertEqual(emitter?.particleLifespan.float, 0.1974)
-            XCTAssertEqual(emitter?.startColor.r, 0.83)
-            XCTAssertEqual(emitter?.startParticleSize.float, 41.68)
-            XCTAssertEqual(emitter?.blendFuncSource.int, 770)
-            
-            if let texture = emitter?.texture.texture() {
-                XCTAssertEqual(texture.size().width, 64.0)
-                XCTAssertEqual(texture.size().height, 64.0)
-            } else {
-                XCTFail()
+            try configFiles.forEach { (filename) in
+                let emitter = try BaseParticleEmitter.load(withFile: filename, delegate: self)
+                
+                if filename.elementsEqual("Comet.pex") {
+                    XCTAssertEqual(emitter?.particleLifespan.float, 0.1974)
+                    XCTAssertEqual(emitter?.startColor.r, 0.83)
+                    XCTAssertEqual(emitter?.startParticleSize.float, 41.68)
+                    XCTAssertEqual(emitter?.blendFuncSource.int, 770)
+                    XCTAssertEqual(emitter?.duration.float, -1.0)
+                }
+                
+                if let texture = emitter?.textureDetails!.texture() {
+                    XCTAssertNotEqual(texture.size().width, 0.0)
+                    XCTAssertNotEqual(texture.size().height, 0.0)
+                } else {
+                    XCTFail()
+                }
             }
         } catch {
             NSLog("failed to load emitter: \(error)")
