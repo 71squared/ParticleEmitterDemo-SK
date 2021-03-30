@@ -17,38 +17,10 @@ import Gzip
 import XMLCoder
 
 // Particle type
-enum ParticleTypes : Int, Codable, DynamicNodeDecoding {
-    
-    static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
-        return .attribute
-    }
+enum ParticleTypes : Int {
     
     case particleTypeGravity
     case particleTypeRadial
-    
-    enum CodingKeys: String, CodingKey {
-        case value
-    }
-    
-    enum DecodeError : Error {
-        case ParticleTypeError
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        
-        if let value = try? values.decode(Int.self, forKey: .value) {
-            self = ParticleTypes(rawValue: value)!
-            return
-        }
-        
-        if let value = try? values.decode(String.self, forKey: .value) {
-            self = ParticleTypes(rawValue: Int(value)!)!
-            return
-        }
-        
-        throw DecodeError.ParticleTypeError
-    }
     
 }
 
@@ -103,300 +75,6 @@ struct Particle {
 // particle emitters allows you to create organic looking effects such as smoke, fire and
 // explosions.
 //
-
-struct Vector2 : Codable, DynamicNodeDecoding {
-    
-    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
-        return .attribute
-    }
-    
-    var x : Float
-    var y : Float
-    
-    enum CodingKeys : String, CodingKey {
-        case x
-        case y
-    }
-    
-    static var zero : Vector2 {
-        get {
-            return .init(0.0, 0.0)
-        }
-    }
-    
-    func asGLVector2() -> GLKVector2 {
-        return GLKVector2Make(x, y)
-    }
-    
-    init(_ x: PEFloat, _ y: PEFloat) {
-        self.x = x.float
-        self.y = y.float
-    }
-    
-    init(_ x: Double, _ y: Double) {
-        self.x = .init(x)
-        self.y = .init(y)
-    }
-    
-    init(_ x: Float, _ y: Float) {
-        self.x = .init(x)
-        self.y = .init(y)
-    }
-    
-    init(_ glVec: GLKVector2) {
-        self.x = .init(glVec.x)
-        self.y = .init(glVec.y)
-    }
-    
-    static func -(left : Vector2, right: Vector2) -> Vector2 {
-        return Vector2(left.x - right.x, left.y - right.y)
-    }
-    
-    static func +(left : Vector2, right: Vector2) -> Vector2 {
-        return Vector2(left.x + right.x, left.y + right.y)
-    }
-}
-
-struct Vector4 : Codable, DynamicNodeDecoding {
-    
-    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
-        return .attribute
-    }
-    
-    var r : Float
-    var g : Float
-    var b : Float
-    var a : Float
-    
-    enum CodingKeys : String, CodingKey {
-        case r = "red"
-        case g = "green"
-        case b = "blue"
-        case a = "alpha"
-    }
-    
-    init(_ r: Float, _ g: Float, _ b: Float, _ a: Float) {
-        self.r = r
-        self.g = g
-        self.b = b
-        self.a = a
-    }
-    
-    static var zero : Vector4 {
-        get {
-            return .init(0.0, 0.0, 0.0, 0.0)
-        }
-    }
-    
-    func asGLVector4() -> GLKVector4 {
-        return GLKVector4Make(r, g, b, a)
-    }
-    
-    func asUIColor() -> UIColor {
-        return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
-    }
-}
-
-struct PEInt : Codable, DynamicNodeDecoding {
-    
-    var value : Int
-    
-    enum CodingKeys : String, CodingKey {
-        case value
-    }
-    
-    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
-        return .attribute
-    }
-    
-    init(_ val: Int) {
-        self.value = val
-    }
-    
-    var int : Int {
-        get {
-            return value
-        }
-        
-        set {
-            value = newValue
-        }
-    }
-    
-}
-
-struct PEFloat : Codable, DynamicNodeDecoding {
-    
-    var value : Float
-    
-    enum CodingKeys : String, CodingKey {
-        case value
-    }
-    
-    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
-        return .attribute
-    }
-    
-    var float : Float {
-        get {
-            return value
-        }
-        
-        set {
-            value = newValue
-        }
-    }
-    
-    init(_ val: Float) {
-        value = val
-    }
-    
-    init(_ val: Double) {
-        value = Float(val)
-    }
-    
-    static func +(left : PEFloat, right: PEFloat) -> PEFloat {
-        return PEFloat(left.value + right.value)
-    }
-    
-    static func +(left : Float, right: PEFloat) -> PEFloat {
-        return PEFloat(left + right.value)
-    }
-    
-    static func +(left : PEFloat, right: Float) -> PEFloat {
-        return PEFloat(left.value + right)
-    }
-    
-    static func +=( left : inout PEFloat, right: PEFloat) {
-        left.value += right.value
-    }
-    
-    static func -(left : PEFloat, right: PEFloat) -> PEFloat {
-        return PEFloat(left.value - right.value)
-    }
-    
-    static func -(left : Float, right: PEFloat) -> PEFloat {
-        return PEFloat(left - right.value)
-    }
-    
-    static func -(left : PEFloat, right: Float) -> PEFloat {
-        return PEFloat(left.value - right)
-    }
-    
-    static func -=( left : inout PEFloat, right: PEFloat) {
-        left.value -= right.value
-    }
-    
-    static func *(left : PEFloat, right: PEFloat) -> PEFloat {
-        return PEFloat(left.value * right.value)
-    }
-    
-    static func *(left : Float, right: PEFloat) -> PEFloat {
-        return PEFloat(left * right.value)
-    }
-    
-    static func *(left : PEFloat, right: Float) -> PEFloat {
-        return PEFloat(left.value * right)
-    }
-    
-    static func /(left : PEFloat, right: PEFloat) -> PEFloat {
-        return PEFloat(left.value / right.value)
-    }
-    
-    static func /(left : Float, right: PEFloat) -> PEFloat {
-        return PEFloat(left / right.value)
-    }
-    
-    static func /(left : PEFloat, right: Float) -> PEFloat {
-        return PEFloat(left.value / right)
-    }
-    
-    static func >(left : PEFloat, right: PEFloat) -> Bool {
-        return left.value > right.value
-    }
-    
-    static func >(left : PEFloat, right: Float) -> Bool {
-        return left.value > right
-    }
-    
-    static func <(left : PEFloat, right: PEFloat) -> Bool {
-        return left.value < right.value
-    }
-    
-    static func >=(left : PEFloat, right: PEFloat) -> Bool {
-        return left.value >= right.value
-    }
-    
-    static func <=(left : PEFloat, right: PEFloat) -> Bool {
-        return left.value <= right.value
-    }
-    
-    static func ==(left : PEFloat, right: PEFloat) -> Bool {
-        return left.value == right.value
-    }
-    
-    static func !=(left : PEFloat, right: PEFloat) -> Bool {
-        return left.value != right.value
-    }
-    
-    static func !=(left : Float, right: PEFloat) -> Bool {
-        return left != right.value
-    }
-    
-    static func !=(left : PEFloat, right: Float) -> Bool {
-        return left.value != right
-    }
-    
-}
-
-struct PETexture : Codable, DynamicNodeDecoding {
-    
-    var name : String
-    var data : String
-    
-    enum CodingKeys : String, CodingKey {
-        case name
-        case data
-    }
-    
-    public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
-        return .attribute
-    }
-    
-    func inflated(data: Data) -> Data {
-        if data.count == 0 {
-            return data
-        }
-        
-        do {
-            return try data.gunzipped()
-        } catch {
-            print(error.localizedDescription)
-            
-            return Data()
-        }
-    }
-    
-    func image() -> UIImage? {
-        if name.count > 0 && data.count == 0 {
-            return UIImage(named: name)
-        } else if data.count > 0 {
-            let tiffData = self.inflated(data: Data(base64Encoded: data)!)
-            
-            return UIImage(data: tiffData)
-        }
-        
-        return nil
-    }
-    
-    func texture() -> SKTexture? {
-        if let image = self.image() {
-            return SKTexture(image: image)
-        }
-        
-        return nil
-    }
-}
 
 protocol BaseParticleEmitterDelegate {
     func addParticle()
@@ -505,7 +183,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     func update(withDelta aDelta: PEFloat) {
         
         // If the emitter is active and the emission rate is greater than zero then emit particles
-        if active && (emissionRate > 0) {
+        if active && (emissionRate != 0) {
             let rate : PEFloat = 1.0 / emissionRate
             
             if (particleCount < maxParticles.int) {
@@ -536,7 +214,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             particles[index].timeToLive -= aDelta
             
             // If the current particle is alive then update it
-            if particles[index].timeToLive > 0 {
+            if particles[index].timeToLive > 0.0 {
                 
                 self.updateParticle(atIndex : index, withDelta : aDelta)
                 
@@ -569,7 +247,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             particle.position = Vector2(sourcePosition.x - cosf(particle.angle.float) * particle.radius, sourcePosition.y - sinf(particle.angle.float) * particle.radius)
             
             if (particle.radius < minRadius) {
-                particle.timeToLive = .init(0.0)
+                particle.timeToLive.float = 0.0
             }
             
         } else {
@@ -578,9 +256,10 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             radial = GLKVector2Make(0.0, 0.0)
             
             // By default this emitters particles are moved relative to the emitter node position
-            particle.position = particle.position - particle.startPos
+            let positionDifference = particle.startPos - .zero
+            particle.position = particle.position - positionDifference
             
-            if particle.position.x > 0.0 || particle.position.y > 0.0 {
+            if particle.position.x != 0.0 || particle.position.y != 0.0 {
                 radial = GLKVector2Normalize(particle.position.asGLVector2())
             }
             
@@ -597,6 +276,9 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             particle.direction = particle.direction + Vector2(tmp)
             tmp = GLKVector2MultiplyScalar(particle.direction.asGLVector2(), delta.float)
             particle.position = particle.position + Vector2(tmp)
+            
+            // Now apply the difference calculated early causing the particles to be relative in position to the emitter position
+            particle.position = particle.position + positionDifference
         }
         
         // Update the particles color
@@ -672,7 +354,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     }
     
     func randomMinus1To1() -> GLfloat {
-        return Float.random(in: -1.0...1.0)
+        return (GLfloat(arc4random()) / GLfloat(UINT32_MAX / 2)) - 1.0
     }
     
     func initParticle(particle : inout Particle) {
@@ -693,7 +375,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         let vector : GLKVector2 = GLKVector2Make(cosf(newAngle), sinf(newAngle))
         
         // Calculate the vectorSpeed using the speed and speedVariance which has been passed in
-        let vectorSpeed : GLfloat = (speed + speedVariance).float * randomMinus1To1()
+        let vectorSpeed : GLfloat = speed.float + speedVariance.float * randomMinus1To1()
         
         // The particles direction vector is calculated by taking the vector calculated above and
         // multiplying that by the speed
@@ -727,7 +409,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         
         // Calculate the color the particle should be when its life is over.  This is done the same
         // way as the start color above
-        var end : GLKVector4 = GLKVector4Make(0.0, 0.0, 0.0, 0.0)
+        var end : Vector4 = Vector4(0.0, 0.0, 0.0, 0.0)
         end.r = finishColor.r + finishColorVariance.r * randomMinus1To1()
         end.g = finishColor.g + finishColorVariance.g * randomMinus1To1()
         end.b = finishColor.b + finishColorVariance.b * randomMinus1To1()

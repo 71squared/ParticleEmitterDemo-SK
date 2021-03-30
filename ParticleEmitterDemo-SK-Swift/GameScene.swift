@@ -18,7 +18,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         self.backgroundColor = .black
-        
+
         // Create a list of emitter configs to load
         let configFiles = [
             "Comet",
@@ -91,7 +91,7 @@ class GameScene: SKScene {
         // Get the next particle system from the enumerator and reset it
         particleEmitter = self.particleEnumerator?.next()?.element
         particleEmitter?.emitter!.reset()
-        particleEmitter?.emitter!.sourcePosition = .zero
+        particleEmitter?.emitter!.sourcePosition = Vector2(Float(self.size.width) / 2.0, Float(self.size.height) / 2.0)
         self.addChild(particleEmitter!)
     }
     
