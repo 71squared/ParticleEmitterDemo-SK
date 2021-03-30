@@ -71,7 +71,8 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
-    static let frameTime = PEFloat(0.016)
+    /// 1/60th of a second.
+    static let frameTime = TimeInterval(0.016)
     
     override func update(_ currentTime: TimeInterval) {
         self.particleEmitter?.update(withDelta: GameScene.frameTime)

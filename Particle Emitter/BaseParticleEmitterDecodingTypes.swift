@@ -2,6 +2,11 @@
 //  BaseParticleEmitterDecodingTypes.swift
 //  ParticleEmitterDemo-SK
 //
+//  These types are used by the BaseParticleEmitter class to facilitate the "simpler" parsing of the
+//  emitter configuration file.  Unfortunately, the fields within the file all have their values as
+//  attributes, so that necessitate the creation of these wrapper types.  I was originally concerned
+//  that they would cause problems with performance for the emitter, however tests show it to be OK.
+//
 //  Created by Peter Easdown on 30/3/21.
 //  Copyright © 2021 71Squared Ltd. All rights reserved.
 //
@@ -12,7 +17,8 @@ import SpriteKit
 import Gzip
 import XMLCoder
 
-// Particle type
+/// Extension to allow parsing of the ParticleType.
+///
 extension ParticleTypes : Codable, DynamicNodeDecoding {
     
     static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
@@ -45,6 +51,8 @@ extension ParticleTypes : Codable, DynamicNodeDecoding {
     
 }
 
+/// This struct provides us with a parsable equivalent of the GLKVector2 type.  Ultimately, it would be good to remove all of the GLK references.
+///
 struct Vector2 : Codable, DynamicNodeDecoding {
     
     public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
@@ -98,7 +106,9 @@ struct Vector2 : Codable, DynamicNodeDecoding {
     }
 }
 
-struct Vector4 : Codable, DynamicNodeDecoding {
+/// This struct provides us with a parsable equivalent of the GLKVector4 type, used just for colours.  Ultimately, it would be good to remove all of the GLK references.
+///
+struct PEColor : Codable, DynamicNodeDecoding {
     
     public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
         return .attribute
@@ -123,14 +133,10 @@ struct Vector4 : Codable, DynamicNodeDecoding {
         self.a = a
     }
     
-    static var zero : Vector4 {
+    static var zero : PEColor {
         get {
             return .init(0.0, 0.0, 0.0, 0.0)
         }
-    }
-    
-    func asGLVector4() -> GLKVector4 {
-        return GLKVector4Make(r, g, b, a)
     }
     
     func asUIColor() -> UIColor {
@@ -138,6 +144,8 @@ struct Vector4 : Codable, DynamicNodeDecoding {
     }
 }
 
+/// This struct provides us with a parsable equivalent of the Int type as an attribute.
+///
 struct PEInt : Codable, DynamicNodeDecoding {
     
     var value : Int
@@ -166,6 +174,8 @@ struct PEInt : Codable, DynamicNodeDecoding {
     
 }
 
+/// This struct provides us with a parsable equivalent of the Float type as an attribute.
+///
 struct PEFloat : Codable, DynamicNodeDecoding {
     
     var value : Float
@@ -194,6 +204,12 @@ struct PEFloat : Codable, DynamicNodeDecoding {
     
     init(_ val: Double) {
         value = Float(val)
+    }
+    
+    static var zero : PEFloat {
+        get {
+            return PEFloat(0.0)
+        }
     }
     
     static func +(left : PEFloat, right: PEFloat) -> PEFloat {
@@ -290,6 +306,8 @@ struct PEFloat : Codable, DynamicNodeDecoding {
     
 }
 
+/// This struct provides us with a parsable equivalent of the texture property of an emitter.
+///
 struct PETexture : Codable, DynamicNodeDecoding {
     
     var name : String
