@@ -80,7 +80,6 @@
 		D06180C1260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180C0260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift */; };
 		D06180E5260F240C003ED0CD /* SKParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180E4260F240C003ED0CD /* SKParticleEmitter.swift */; };
 		D06180E6260F240C003ED0CD /* SKParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180E4260F240C003ED0CD /* SKParticleEmitter.swift */; };
-		D06180EB260F2432003ED0CD /* skParticleFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */; };
 		D06180F1260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */; };
 		D06180F2260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */; };
 		D06180F9260F321F003ED0CD /* XmlReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F8260F321F003ED0CD /* XmlReader.swift */; };
@@ -620,7 +619,6 @@
 				D040E75D2611CE6000D94D88 /* Blue Galaxy.pex in Resources */,
 				D040E75A2611CE6000D94D88 /* Crazy Blue.pex in Resources */,
 				D00E45972613372F00279E8D /* Launch Screen.storyboard in Resources */,
-				D06180EB260F2432003ED0CD /* skParticleFragmentShader.fsh in Resources */,
 				D040E7592611CE6000D94D88 /* JasonChoi_Flash.pex in Resources */,
 				D06180B4260F237D003ED0CD /* MainSwift.storyboard in Resources */,
 				D040E76C2611CE6700D94D88 /* Real Popcorn.pex in Resources */,

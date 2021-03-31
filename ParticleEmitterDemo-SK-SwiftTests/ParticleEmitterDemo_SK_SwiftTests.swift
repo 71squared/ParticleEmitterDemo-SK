@@ -10,7 +10,7 @@ import XCTest
 @testable import ParticleEmitterDemo_SK_Swift
 
 class ParticleEmitterDemo_SK_SwiftTests: XCTestCase , BaseParticleEmitterDelegate {
-    func removeParticle(atIndex index: Int) {
+    func removeParticle() {
         
     }
     

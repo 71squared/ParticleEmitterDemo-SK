@@ -142,6 +142,51 @@ struct PEColor : Codable, DynamicNodeDecoding {
     func asUIColor() -> UIColor {
         return UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
     }
+    
+    // MARK :- Mathematical operators.
+    
+    static func +=(left : inout PEColor, right: PEColor) {
+        left.r += right.r
+        left.g += right.g
+        left.b += right.b
+        left.a += right.a
+    }
+    
+    static func +(left : PEColor, right: PEColor) -> PEColor {
+        return PEColor(left.r + right.r,
+                       left.g + right.g,
+                       left.b + right.b,
+                       left.a + right.a)
+    }
+
+    static func -(left : PEColor, right: PEColor) -> PEColor {
+        return PEColor(left.r - right.r,
+                       left.g - right.g,
+                       left.b - right.b,
+                       left.a - right.a)
+    }
+
+    static func *(left : PEColor, right: PEFloat) -> PEColor {
+        return left * right.float
+    }
+
+    static func *(left : PEColor, right: Float) -> PEColor {
+        return PEColor(left.r * right,
+                       left.g * right,
+                       left.b * right,
+                       left.a * right)
+    }
+
+    static func /(left : PEColor, right: PEFloat) -> PEColor {
+        return left / right.float
+    }
+
+    static func /(left : PEColor, right: Float) -> PEColor {
+        return PEColor(left.r / right,
+                       left.g / right,
+                       left.b / right,
+                       left.a / right)
+    }
 }
 
 /// This struct provides us with a parsable equivalent of the Int type as an attribute.
@@ -211,6 +256,8 @@ struct PEFloat : Codable, DynamicNodeDecoding {
             return PEFloat(0.0)
         }
     }
+    
+    // MARK :- Mathematical operators.
     
     static func +(left : PEFloat, right: PEFloat) -> PEFloat {
         return PEFloat(left.value + right.value)
@@ -322,7 +369,10 @@ struct PETexture : Codable, DynamicNodeDecoding {
         return .attribute
     }
     
-    func inflated(data: Data) -> Data {
+    /// Unzip the string obtained from the configuration file.  Uses Gzip package from https://github.com/1024jp/GzipSwift
+    /// - Parameter data: The gzipped data as obtained from the configuration file.
+    /// - Returns: A Data object containing the inflated output of the gunzip operation, or nil of that operation failed.
+    private func inflated(data: Data) -> Data? {
         if data.count == 0 {
             return data
         }
@@ -336,18 +386,23 @@ struct PETexture : Codable, DynamicNodeDecoding {
         }
     }
     
+    /// Attempts to locate a named image asset if a name is provided by the emitter configuration file, and no compressed image data is present,
+    /// or returns an image formed from the decompressed image data.
+    /// - Returns: A UIImage object representing the texture to use for the emitter.
     func image() -> UIImage? {
         if name.count > 0 && data.count == 0 {
             return UIImage(named: name)
         } else if data.count > 0 {
-            let tiffData = self.inflated(data: Data(base64Encoded: data)!)
-            
-            return UIImage(data: tiffData)
+            if let tiffData = self.inflated(data: Data(base64Encoded: data)!) {
+                return UIImage(data: tiffData)
+            }
         }
         
         return nil
     }
     
+    /// Returns a SKTexture object containing the texture specified by the emitter configuration.
+    /// - Returns: A SKTexture object, or nil if no image could be determined.
     func texture() -> SKTexture? {
         if let image = self.image() {
             return SKTexture(image: image)

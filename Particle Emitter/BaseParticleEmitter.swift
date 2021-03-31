@@ -5,10 +5,17 @@
 //  Created by Peter Easdown on 27/3/21.
 //  Copyright © 2021 71Squared Ltd. All rights reserved.
 //
-// This Swift class is heavily based on the original ObjectiveC classes
-// available within the repository at:
+//  This Swift class is heavily based on the original ObjectiveC classes
+//  available within the repository at:
 //
 // https://github.com/71squared/ParticleEmitterDemo-SK
+//
+// Rather than port the entire TBXML codebase, this class employes the XMLCoder package located at:
+// https://github.com/MaxDesiatov/XMLCoder.git to parse the emitter configuration files.
+//
+// As a result of that, and some Swift eccentricities (or perhaps my lack of Swift expertise), this
+// class makes use of a number of wrapper types for the emitter properties to make it simpler to
+// use XMLCoder.  There _may_ be some performance penalties, but I've not seen any in my early tests.
 //
 import Foundation
 import CoreGraphics
@@ -16,37 +23,12 @@ import SpriteKit
 import Gzip
 import XMLCoder
 
-// Particle type
+// Particle type enumeration.
 enum ParticleTypes : Int {
     
     case particleTypeGravity
     case particleTypeRadial
     
-}
-
-// Structure that holds the location and size for each point sprite
-struct PointSprite {
-    var x     : PEFloat = .init(0.0)
-    var y     : PEFloat = .init(0.0)
-    var s     : PEFloat = .init(0.0)
-    var t     : PEFloat = .init(0.0)
-    var color : PEColor = .zero
-}
-
-struct TexturedColoredVertex {
-    var vertex              : Vector2 = .zero
-    var texture             : Vector2 = .zero
-    var color               : PEColor = .zero
-    var particleSize        : PEFloat = .init(0.0)
-    var rotationRad         : PEFloat = .init(0.0)
-    var positionMultiplier  : Vector2 = .zero
-}
-
-struct ParticleQuad {
-    var bl : TexturedColoredVertex
-    var br : TexturedColoredVertex
-    var tl : TexturedColoredVertex
-    var tr : TexturedColoredVertex
 }
 
 // Structure used to hold particle specific information
@@ -68,7 +50,6 @@ struct Particle {
     var particleSizeDelta       : PEFloat = .init(0.0)
     var timeToLive              : PEFloat = .init(0.0)
 }
-
 
 /// This delegate is used by the BaseParticleEmitter to inform the visualisation of when to add a particle or remove it
 /// from the screen.
@@ -160,6 +141,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     var sourcePosition : Vector2 = .zero
     var particleCount : Int = 0
     var duration : PEFloat = .zero
+    var spriteKitBlendMode : SKBlendMode = .add
     
     deinit {
         // Release the memory we are using for our vertex and particle arrays etc
@@ -287,21 +269,19 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         }
         
         // Update the particles color
-        particle.color.r += (particle.deltaColor.r * delta.float)
-        particle.color.g += (particle.deltaColor.g * delta.float)
-        particle.color.b += (particle.deltaColor.b * delta.float)
-        particle.color.a += (particle.deltaColor.a * delta.float)
-        
-        //        var c: GLKVector4
-        //
-        //        if (opacityModifyRGB) {
-        //            c = GLKVector4Make(particle.color.r * particle.color.a,
-        //                particle.color.g * particle.color.a,
-        //                particle.color.b * particle.color.a,
-        //                particle.color.a)
-        //        } else {
-        //            c = particle.color
-        //        }
+        particle.color += (particle.deltaColor * delta)
+  
+// This code was in the original ObjC code, but is not used.
+//        var c: PEColor
+//
+//        if (opacityModifyRGB) {
+//            c = PEColor(particle.color.r * particle.color.a,
+//                        particle.color.g * particle.color.a,
+//                        particle.color.b * particle.color.a,
+//                        particle.color.a)
+//        } else {
+//            c = particle.color
+//        }
         
         // Update the particle size
         particle.particleSize += particle.particleSizeDelta * delta
@@ -406,20 +386,20 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         
         // Calculate the color the particle should have when it starts its life.  All the elements
         // of the start color passed in along with the variance are used to calculate the star color
-        var start : PEColor  = PEColor(0.0, 0.0, 0.0, 0.0)
+        var start : PEColor  = .zero
         start.r = startColor.r + startColorVariance.r * randomMinus1To1()
         start.g = startColor.g + startColorVariance.g * randomMinus1To1()
         start.b = startColor.b + startColorVariance.b * randomMinus1To1()
         start.a = startColor.a + startColorVariance.a * randomMinus1To1()
-        
+
         // Calculate the color the particle should be when its life is over.  This is done the same
         // way as the start color above
-        var end : PEColor = PEColor(0.0, 0.0, 0.0, 0.0)
+        var end : PEColor = .zero
         end.r = finishColor.r + finishColorVariance.r * randomMinus1To1()
         end.g = finishColor.g + finishColorVariance.g * randomMinus1To1()
         end.b = finishColor.b + finishColorVariance.b * randomMinus1To1()
         end.a = finishColor.a + finishColorVariance.a * randomMinus1To1()
-        
+
         // Calculate the delta which is to be applied to the particles color during each cycle of its
         // life.  The delta calculation uses the life span of the particle to make sure that the
         // particles color will transition from the start to end color during its life time.  As the game
@@ -427,10 +407,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         // update method
         
         particle.color = start
-        particle.deltaColor.r = ((end.r - start.r) / particle.timeToLive.float)
-        particle.deltaColor.g = ((end.g - start.g) / particle.timeToLive.float)
-        particle.deltaColor.b = ((end.b - start.b) / particle.timeToLive.float)
-        particle.deltaColor.a = ((end.a - start.a) / particle.timeToLive.float)
+        particle.deltaColor = (end - start) / particle.timeToLive
         
         // Calculate the rotation
         let startA : GLfloat = rotationStart.float + rotationStartVariance.float * randomMinus1To1()
@@ -455,6 +432,8 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     
     // MARK: - Codable
     
+    /// This represents all of the properties stored within an emitter configuration file.  XMLCoder uses these to parse
+    /// the file.
     enum CodingKeys : String, CodingKey {
         case emitterType
         case sourcePosition
@@ -493,6 +472,7 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
         case textureDetails = "texture"
     }
     
+    /// The root level tag.
     enum ConfigCodingKeys : String, CodingKey {
         case particleEmitterConfig
     }
@@ -504,7 +484,8 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
     static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
         return .elementOrAttribute
     }
-
+    
+    /// Call this after completing the load from the configuration file.  It applies those settings that are derived from the configuration.
     private func postParseInit() {
         // Calculate the emission rate
         emissionRate.float = Float(maxParticles.int) / particleLifespan.float
@@ -535,11 +516,36 @@ class BaseParticleEmitter : Codable, DynamicNodeEncoding, DynamicNodeDecoding {
             if premultiplied {
                 opacityModifyRGB = true
             } else {
+                // this triggers .alpha blendMode
                 blendFuncSource.int = Int(GL_SRC_ALPHA)
                 blendFuncDestination.int = Int(GL_ONE_MINUS_SRC_ALPHA)
             }
         }
-        
+                
+        // These mappings work so far as I can tell.  Certainly the visuals I see when I test match very
+        // closely to what I see in ParticleDesigner.
+        //
+        if blendFuncSource.int == GL_ONE && blendFuncDestination.int == GL_ONE {
+            spriteKitBlendMode = .add
+        } else if blendFuncSource.int == GL_SRC_ALPHA && blendFuncDestination.int == GL_ONE {
+            spriteKitBlendMode = .add
+        } else if blendFuncSource.int == GL_DST_COLOR && blendFuncDestination.int == GL_ONE_MINUS_SRC_ALPHA {
+            spriteKitBlendMode = .multiply
+// I've no idea how to mapp these two.
+//        } else if blendFuncSource.int == GL_ONE &&  blendFuncDestination.int == GL_ONE {
+//            blendFunc = .multiplyAlpha
+//        } else if blendFuncSource.int == GL_ONE &&  blendFuncDestination.int == GL_ONE {
+//            blendFunc = .multiplyX2
+        } else if blendFuncSource.int == GL_ONE && blendFuncDestination.int == GL_ONE_MINUS_SRC_ALPHA {
+            spriteKitBlendMode = .alpha
+        } else if blendFuncSource.int == GL_ONE_MINUS_DST_COLOR && blendFuncDestination.int == GL_ONE {
+            spriteKitBlendMode = .screen
+        } else if blendFuncSource.int == GL_SRC_ALPHA && blendFuncDestination.int == GL_ONE_MINUS_SRC_ALPHA {
+            spriteKitBlendMode = .alpha
+        } else {
+            spriteKitBlendMode = .add
+        }
+                
         self.setupArrays()
         self.reset()
     }

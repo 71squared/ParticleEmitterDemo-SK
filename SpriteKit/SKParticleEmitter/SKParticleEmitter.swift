@@ -27,21 +27,6 @@ class SKParticleEmitter : SKNode, BaseParticleEmitterDelegate {
     /// properties from the underlying engine.
     var particleNodes = Array<SKSpriteNode>()
     
-    /// The shader used to draw all particles.
-    static let shader : SKShader = SKParticleEmitter.createShader()
-    
-    /// Creates the status shader instance.
-    /// - Returns: An SKShader instance.
-    static func createShader() -> SKShader {
-        let u = SKUniform(name: "u_opacityModifyRGB")
-        u.floatValue = 1.0
-
-        let result = SKShader(fileNamed:  "skParticleFragmentShader.fsh")
-        result.addUniform(u)
-        
-        return result
-    }
-    
     /// Initialises the emitter (an SKNode) using the configuration specified file.
     /// - Parameter fileName: the configuration file to use; it's assumed that the extension is ".pex".
     /// - Throws: If something prevents the shader configuration being loaded.
@@ -58,7 +43,7 @@ class SKParticleEmitter : SKNode, BaseParticleEmitterDelegate {
         for _ in 0 ..< emitter!.maxParticles.int {
             let particleNode = SKSpriteNode(texture: self.texture)
             particleNode.size = .zero
-            particleNode.shader = SKParticleEmitter.shader
+            particleNode.blendMode = emitter!.spriteKitBlendMode
             self.particleNodes.append(particleNode)
             particleNode.isHidden = true
             particleNode.color = .init(red: 1.0, green: 0.3, blue: 0.5, alpha: 0.5)
@@ -92,7 +77,7 @@ class SKParticleEmitter : SKNode, BaseParticleEmitterDelegate {
             
             // this is what 71Squared had.  I think with time, we can improve on this to map the GL blend modes to
             // SpriteKit blend modes.
-            particleNode.blendMode = .add
+//            particleNode.blendMode = self.emitter!.spriteKitBlendMode
         }
     }
     
