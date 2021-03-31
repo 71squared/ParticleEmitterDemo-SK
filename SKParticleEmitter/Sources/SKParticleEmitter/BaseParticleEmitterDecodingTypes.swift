@@ -53,7 +53,7 @@ extension ParticleTypes : Codable, DynamicNodeDecoding {
 
 /// This struct provides us with a parsable equivalent of the GLKVector2 type.  Ultimately, it would be good to remove all of the GLK references.
 ///
-struct Vector2 : Codable, DynamicNodeDecoding {
+public struct Vector2 : Codable, DynamicNodeDecoding {
     
     public static func nodeDecoding(for key: CodingKey) -> XMLDecoder.NodeDecoding {
         return .attribute
@@ -67,7 +67,7 @@ struct Vector2 : Codable, DynamicNodeDecoding {
         case y
     }
     
-    static var zero : Vector2 {
+    public static var zero : Vector2 {
         get {
             return .init(0.0, 0.0)
         }
@@ -77,22 +77,22 @@ struct Vector2 : Codable, DynamicNodeDecoding {
         return GLKVector2Make(x, y)
     }
     
-    init(_ x: PEFloat, _ y: PEFloat) {
+    public init(_ x: PEFloat, _ y: PEFloat) {
         self.x = x.float
         self.y = y.float
     }
     
-    init(_ x: Double, _ y: Double) {
+    public init(_ x: Double, _ y: Double) {
         self.x = .init(x)
         self.y = .init(y)
     }
     
-    init(_ x: Float, _ y: Float) {
+    public init(_ x: Float, _ y: Float) {
         self.x = .init(x)
         self.y = .init(y)
     }
     
-    init(_ glVec: GLKVector2) {
+    public init(_ glVec: GLKVector2) {
         self.x = .init(glVec.x)
         self.y = .init(glVec.y)
     }
@@ -191,7 +191,7 @@ struct PEColor : Codable, DynamicNodeDecoding {
 
 /// This struct provides us with a parsable equivalent of the Int type as an attribute.
 ///
-struct PEInt : Codable, DynamicNodeDecoding {
+public struct PEInt : Codable, DynamicNodeDecoding {
     
     var value : Int
     
@@ -203,7 +203,7 @@ struct PEInt : Codable, DynamicNodeDecoding {
         return .attribute
     }
     
-    init(_ val: Int) {
+    public init(_ val: Int) {
         self.value = val
     }
     
@@ -221,7 +221,7 @@ struct PEInt : Codable, DynamicNodeDecoding {
 
 /// This struct provides us with a parsable equivalent of the Float type as an attribute.
 ///
-struct PEFloat : Codable, DynamicNodeDecoding {
+public struct PEFloat : Codable, DynamicNodeDecoding {
     
     var value : Float
     
@@ -243,15 +243,15 @@ struct PEFloat : Codable, DynamicNodeDecoding {
         }
     }
     
-    init(_ val: Float) {
+    public init(_ val: Float) {
         value = val
     }
     
-    init(_ val: Double) {
+    public init(_ val: Double) {
         value = Float(val)
     }
     
-    static var zero : PEFloat {
+    public static var zero : PEFloat {
         get {
             return PEFloat(0.0)
         }

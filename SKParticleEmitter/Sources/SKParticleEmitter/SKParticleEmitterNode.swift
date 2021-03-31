@@ -12,10 +12,10 @@ import Foundation
 import CoreGraphics
 import SpriteKit
 
-class SKParticleEmitter : SKNode, BaseParticleEmitterDelegate {
+open class SKParticleEmitterNode : SKNode, BaseParticleEmitterDelegate {
     
     /// The actual emitter engine.
-    var emitter : BaseParticleEmitter?
+    public var emitter : BaseParticleEmitter?
     
     /// The texture to use for this emitter.
     var texture : SKTexture?
@@ -30,7 +30,7 @@ class SKParticleEmitter : SKNode, BaseParticleEmitterDelegate {
     /// Initialises the emitter (an SKNode) using the configuration specified file.
     /// - Parameter fileName: the configuration file to use; it's assumed that the extension is ".pex".
     /// - Throws: If something prevents the shader configuration being loaded.
-    init(withConfigFile fileName: String) throws {
+    public init(withConfigFile fileName: String) throws {
         super.init()
 
         // load the emitter engine.
@@ -52,13 +52,13 @@ class SKParticleEmitter : SKNode, BaseParticleEmitterDelegate {
     }
     
     /// Not used by this class, but required by Swift.
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     /// Update the emitter (typically, once a frame).  Call this from the scene or view update() method.
     /// - Parameter aDelta: the amount of time to give to the particles.
-    func update(withDelta aDelta: TimeInterval) {
+    public func update(withDelta aDelta: TimeInterval) {
         self.emitter?.update(withDelta: PEFloat(aDelta))
         
         var particleNode : SKSpriteNode

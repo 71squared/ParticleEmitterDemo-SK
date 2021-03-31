@@ -8,12 +8,13 @@
 
 import SpriteKit
 import GameplayKit
+import SKParticleEmitter
 
 class GameScene: SKScene {
     
-    var particleEmitter : SKParticleEmitter?
-    var particleEmitters = Array<SKParticleEmitter>()
-    var particleEnumerator : EnumeratedSequence<[SKParticleEmitter]>.Iterator?
+    var particleEmitter : SKParticleEmitterNode?
+    var particleEmitters = Array<SKParticleEmitterNode>()
+    var particleEnumerator : EnumeratedSequence<[SKParticleEmitterNode]>.Iterator?
     
     override func didMove(to view: SKView) {
         
@@ -46,7 +47,7 @@ class GameScene: SKScene {
         do {
             // Cycle through all emitters configs loading them
             try configFiles.forEach { (filename) in
-                let emitter = try SKParticleEmitter(withConfigFile: filename)
+                let emitter = try SKParticleEmitterNode(withConfigFile: filename)
                 
                 // Center the particle system
                 emitter.position = .zero

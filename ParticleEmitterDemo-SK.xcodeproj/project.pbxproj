@@ -45,11 +45,8 @@
 		8272B3F4197023DD00275F35 /* SKParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3F3197023DD00275F35 /* SKParticleEmitter.m */; };
 		8272B3F7197025E200275F35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8272B3F6197025E200275F35 /* libz.dylib */; };
 		8272B3F91970327500275F35 /* skParticleFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */; };
-		D00E455A2612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E45592612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift */; };
-		D00E455B2612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00E45592612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift */; };
 		D00E45972613372F00279E8D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00E45962613372F00279E8D /* Launch Screen.storyboard */; };
 		D00E45982613372F00279E8D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00E45962613372F00279E8D /* Launch Screen.storyboard */; };
-		D040E7512611BEE700D94D88 /* Gzip in Frameworks */ = {isa = PBXBuildFile; productRef = D040E7502611BEE700D94D88 /* Gzip */; };
 		D040E7562611CE6000D94D88 /* JasonChoi_Swirl01.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */; };
 		D040E7572611CE6000D94D88 /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
 		D040E7582611CE6000D94D88 /* huo1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C41970239C00275F35 /* huo1.pex */; };
@@ -78,11 +75,6 @@
 		D06180B4260F237D003ED0CD /* MainSwift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06180B2260F237D003ED0CD /* MainSwift.storyboard */; };
 		D06180B6260F2380003ED0CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06180B5260F2380003ED0CD /* Assets.xcassets */; };
 		D06180C1260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180C0260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift */; };
-		D06180E5260F240C003ED0CD /* SKParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180E4260F240C003ED0CD /* SKParticleEmitter.swift */; };
-		D06180E6260F240C003ED0CD /* SKParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180E4260F240C003ED0CD /* SKParticleEmitter.swift */; };
-		D06180F1260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */; };
-		D06180F2260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */; };
-		D0618105260FF5C8003ED0CD /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = D0618104260FF5C8003ED0CD /* XMLCoder */; };
 		D061810A260FFFAF003ED0CD /* Winner Stars.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D11970239C00275F35 /* Winner Stars.pex */; };
 		D061810B260FFFAF003ED0CD /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
 		D061810C260FFFAF003ED0CD /* Into The Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C51970239C00275F35 /* Into The Blue.pex */; };
@@ -105,6 +97,7 @@
 		D061811D260FFFAF003ED0CD /* Meks Blood Spill.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C91970239C00275F35 /* Meks Blood Spill.pex */; };
 		D061811E260FFFAF003ED0CD /* Electrons.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C21970239C00275F35 /* Electrons.pex */; };
 		D06181232610001F003ED0CD /* Comet.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C01970239C00275F35 /* Comet.pex */; };
+		D098897E2614939F000A10FA /* SKParticleEmitter in Frameworks */ = {isa = PBXBuildFile; productRef = D098897D2614939F000A10FA /* SKParticleEmitter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,7 +170,6 @@
 		8272B3F5197024DA00275F35 /* ParticleEmitterDemo-SK.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParticleEmitterDemo-SK.pch"; sourceTree = "<group>"; };
 		8272B3F6197025E200275F35 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = skParticleFragmentShader.fsh; path = "../../Particle Emitter/skParticleFragmentShader.fsh"; sourceTree = "<group>"; };
-		D00E45592612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParticleEmitterDecodingTypes.swift; sourceTree = "<group>"; };
 		D00E45962613372F00279E8D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D040E73F2611A21000D94D88 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParticleEmitterDemo-SK-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,8 +184,7 @@
 		D06180BC260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParticleEmitterDemo-SK-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D06180C0260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEmitterDemo_SK_SwiftTests.swift; sourceTree = "<group>"; };
 		D06180C2260F2380003ED0CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D06180E4260F240C003ED0CD /* SKParticleEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKParticleEmitter.swift; sourceTree = "<group>"; };
-		D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParticleEmitter.swift; sourceTree = "<group>"; };
+		D0988956261490B7000A10FA /* SKParticleEmitter */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SKParticleEmitter; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,8 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0618105260FF5C8003ED0CD /* XMLCoder in Frameworks */,
-				D040E7512611BEE700D94D88 /* Gzip in Frameworks */,
+				D098897E2614939F000A10FA /* SKParticleEmitter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +224,7 @@
 		8272B37C19701AFE00275F35 = {
 			isa = PBXGroup;
 			children = (
+				D0988956261490B7000A10FA /* SKParticleEmitter */,
 				8272B3F6197025E200275F35 /* libz.dylib */,
 				8272B3B01970238B00275F35 /* TBXML */,
 				8272B3BC1970239C00275F35 /* Particle Emitter Config */,
@@ -366,8 +357,6 @@
 			children = (
 				8272B3EA197023B500275F35 /* BaseParticleEmitter.h */,
 				8272B3EB197023B500275F35 /* BaseParticleEmitter.m */,
-				D00E45592612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift */,
-				D06180F0260F2473003ED0CD /* BaseParticleEmitter.swift */,
 				8272B3EC197023B500275F35 /* TBXMLParticleAdditions.h */,
 				8272B3ED197023B500275F35 /* TBXMLParticleAdditions.m */,
 			);
@@ -388,7 +377,6 @@
 				8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */,
 				8272B3F2197023DD00275F35 /* SKParticleEmitter.h */,
 				8272B3F3197023DD00275F35 /* SKParticleEmitter.m */,
-				D06180E4260F240C003ED0CD /* SKParticleEmitter.swift */,
 			);
 			path = SKParticleEmitter;
 			sourceTree = "<group>";
@@ -480,8 +468,7 @@
 			);
 			name = "ParticleEmitterDemo-SK-Swift";
 			packageProductDependencies = (
-				D0618104260FF5C8003ED0CD /* XMLCoder */,
-				D040E7502611BEE700D94D88 /* Gzip */,
+				D098897D2614939F000A10FA /* SKParticleEmitter */,
 			);
 			productName = "ParticleEmitterDemo-SK-Swift";
 			productReference = D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */;
@@ -693,11 +680,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D06180F1260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */,
 				D06180AF260F237D003ED0CD /* GameScene.swift in Sources */,
-				D00E455A2612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift in Sources */,
 				D06180B1260F237D003ED0CD /* GameViewController.swift in Sources */,
-				D06180E5260F240C003ED0CD /* SKParticleEmitter.swift in Sources */,
 				D06180A9260F237D003ED0CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,9 +690,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D06180E6260F240C003ED0CD /* SKParticleEmitter.swift in Sources */,
-				D00E455B2612765D00279E8D /* BaseParticleEmitterDecodingTypes.swift in Sources */,
-				D06180F2260F2473003ED0CD /* BaseParticleEmitter.swift in Sources */,
 				D06180C1260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -928,6 +909,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -973,6 +955,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK-Swift/Info.plist";
@@ -1152,15 +1135,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D040E7502611BEE700D94D88 /* Gzip */ = {
+		D098897D2614939F000A10FA /* SKParticleEmitter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D040E7452611B48700D94D88 /* XCRemoteSwiftPackageReference "GzipSwift" */;
-			productName = Gzip;
-		};
-		D0618104260FF5C8003ED0CD /* XMLCoder */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */;
-			productName = XMLCoder;
+			productName = SKParticleEmitter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
