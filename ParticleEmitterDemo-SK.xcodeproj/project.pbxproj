@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,59 @@
 		8272B3F4197023DD00275F35 /* SKParticleEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8272B3F3197023DD00275F35 /* SKParticleEmitter.m */; };
 		8272B3F7197025E200275F35 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8272B3F6197025E200275F35 /* libz.dylib */; };
 		8272B3F91970327500275F35 /* skParticleFragmentShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */; };
+		D00E45972613372F00279E8D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00E45962613372F00279E8D /* Launch Screen.storyboard */; };
+		D00E45982613372F00279E8D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D00E45962613372F00279E8D /* Launch Screen.storyboard */; };
+		D040E7562611CE6000D94D88 /* JasonChoi_Swirl01.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */; };
+		D040E7572611CE6000D94D88 /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
+		D040E7582611CE6000D94D88 /* huo1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C41970239C00275F35 /* huo1.pex */; };
+		D040E7592611CE6000D94D88 /* JasonChoi_Flash.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */; };
+		D040E75A2611CE6000D94D88 /* Crazy Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C11970239C00275F35 /* Crazy Blue.pex */; };
+		D040E75B2611CE6000D94D88 /* Into The Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C51970239C00275F35 /* Into The Blue.pex */; };
+		D040E75C2611CE6000D94D88 /* Foam.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C31970239C00275F35 /* Foam.pex */; };
+		D040E75D2611CE6000D94D88 /* Blue Galaxy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BF1970239C00275F35 /* Blue Galaxy.pex */; };
+		D040E75E2611CE6000D94D88 /* Electrons.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C21970239C00275F35 /* Electrons.pex */; };
+		D040E75F2611CE6000D94D88 /* Blue Flame.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BE1970239C00275F35 /* Blue Flame.pex */; };
+		D040E7602611CE6000D94D88 /* Meks Blood Spill.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C91970239C00275F35 /* Meks Blood Spill.pex */; };
+		D040E7612611CE6000D94D88 /* JasonChoi_rising up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */; };
+		D040E7662611CE6700D94D88 /* wu1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D21970239C00275F35 /* wu1.pex */; };
+		D040E7672611CE6700D94D88 /* Shooting Fireball.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CD1970239C00275F35 /* Shooting Fireball.pex */; };
+		D040E7682611CE6700D94D88 /* The Sun.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CE1970239C00275F35 /* The Sun.pex */; };
+		D040E7692611CE6700D94D88 /* Touch Up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CF1970239C00275F35 /* Touch Up.pex */; };
+		D040E76A2611CE6700D94D88 /* Winner Stars.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D11970239C00275F35 /* Winner Stars.pex */; };
+		D040E76B2611CE6700D94D88 /* Plasma Glow.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CB1970239C00275F35 /* Plasma Glow.pex */; };
+		D040E76C2611CE6700D94D88 /* Real Popcorn.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CC1970239C00275F35 /* Real Popcorn.pex */; };
+		D040E76D2611CE6700D94D88 /* Trippy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D01970239C00275F35 /* Trippy.pex */; };
+		D06180A9260F237D003ED0CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180A8260F237D003ED0CD /* AppDelegate.swift */; };
+		D06180AB260F237D003ED0CD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06180AA260F237D003ED0CD /* GameScene.sks */; };
+		D06180AD260F237D003ED0CD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06180AC260F237D003ED0CD /* Actions.sks */; };
+		D06180AF260F237D003ED0CD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180AE260F237D003ED0CD /* GameScene.swift */; };
+		D06180B1260F237D003ED0CD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180B0260F237D003ED0CD /* GameViewController.swift */; };
+		D06180B4260F237D003ED0CD /* MainSwift.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D06180B2260F237D003ED0CD /* MainSwift.storyboard */; };
+		D06180B6260F2380003ED0CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D06180B5260F2380003ED0CD /* Assets.xcassets */; };
+		D06180C1260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06180C0260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift */; };
+		D061810A260FFFAF003ED0CD /* Winner Stars.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D11970239C00275F35 /* Winner Stars.pex */; };
+		D061810B260FFFAF003ED0CD /* Atomic Bubble.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BD1970239C00275F35 /* Atomic Bubble.pex */; };
+		D061810C260FFFAF003ED0CD /* Into The Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C51970239C00275F35 /* Into The Blue.pex */; };
+		D061810D260FFFAF003ED0CD /* Foam.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C31970239C00275F35 /* Foam.pex */; };
+		D061810E260FFFAF003ED0CD /* Blue Galaxy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BF1970239C00275F35 /* Blue Galaxy.pex */; };
+		D061810F260FFFAF003ED0CD /* Trippy.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D01970239C00275F35 /* Trippy.pex */; };
+		D0618110260FFFAF003ED0CD /* Plasma Glow.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CB1970239C00275F35 /* Plasma Glow.pex */; };
+		D0618111260FFFAF003ED0CD /* huo1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C41970239C00275F35 /* huo1.pex */; };
+		D0618112260FFFAF003ED0CD /* Real Popcorn.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CC1970239C00275F35 /* Real Popcorn.pex */; };
+		D0618113260FFFAF003ED0CD /* Touch Up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CF1970239C00275F35 /* Touch Up.pex */; };
+		D0618114260FFFAF003ED0CD /* Crazy Blue.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C11970239C00275F35 /* Crazy Blue.pex */; };
+		D0618115260FFFAF003ED0CD /* The Sun.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CE1970239C00275F35 /* The Sun.pex */; };
+		D0618116260FFFAF003ED0CD /* wu1.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3D21970239C00275F35 /* wu1.pex */; };
+		D0618117260FFFAF003ED0CD /* JasonChoi_Swirl01.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C81970239C00275F35 /* JasonChoi_Swirl01.pex */; };
+		D0618118260FFFAF003ED0CD /* Comet.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C01970239C00275F35 /* Comet.pex */; };
+		D0618119260FFFAF003ED0CD /* Blue Flame.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3BE1970239C00275F35 /* Blue Flame.pex */; };
+		D061811A260FFFAF003ED0CD /* Shooting Fireball.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3CD1970239C00275F35 /* Shooting Fireball.pex */; };
+		D061811B260FFFAF003ED0CD /* JasonChoi_Flash.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C61970239C00275F35 /* JasonChoi_Flash.pex */; };
+		D061811C260FFFAF003ED0CD /* JasonChoi_rising up.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C71970239C00275F35 /* JasonChoi_rising up.pex */; };
+		D061811D260FFFAF003ED0CD /* Meks Blood Spill.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C91970239C00275F35 /* Meks Blood Spill.pex */; };
+		D061811E260FFFAF003ED0CD /* Electrons.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C21970239C00275F35 /* Electrons.pex */; };
+		D06181232610001F003ED0CD /* Comet.pex in Resources */ = {isa = PBXBuildFile; fileRef = 8272B3C01970239C00275F35 /* Comet.pex */; };
+		D098897E2614939F000A10FA /* SKParticleEmitter in Frameworks */ = {isa = PBXBuildFile; productRef = D098897D2614939F000A10FA /* SKParticleEmitter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +107,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8272B38419701AFE00275F35;
 			remoteInfo = "ParticleEmitterDemo-SK";
+		};
+		D06180BD260F2380003ED0CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8272B37D19701AFE00275F35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D06180A5260F237C003ED0CD;
+			remoteInfo = "ParticleEmitterDemo-SK-Swift";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -110,6 +170,21 @@
 		8272B3F5197024DA00275F35 /* ParticleEmitterDemo-SK.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParticleEmitterDemo-SK.pch"; sourceTree = "<group>"; };
 		8272B3F6197025E200275F35 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8272B3F81970327500275F35 /* skParticleFragmentShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = skParticleFragmentShader.fsh; path = "../../Particle Emitter/skParticleFragmentShader.fsh"; sourceTree = "<group>"; };
+		D00E45962613372F00279E8D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D040E73F2611A21000D94D88 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParticleEmitterDemo-SK-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06180A8260F237D003ED0CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D06180AA260F237D003ED0CD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D06180AC260F237D003ED0CD /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		D06180AE260F237D003ED0CD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D06180B0260F237D003ED0CD /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D06180B3260F237D003ED0CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainSwift.storyboard; sourceTree = "<group>"; };
+		D06180B5260F2380003ED0CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D06180B7260F2380003ED0CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D06180BC260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ParticleEmitterDemo-SK-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D06180C0260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEmitterDemo_SK_SwiftTests.swift; sourceTree = "<group>"; };
+		D06180C2260F2380003ED0CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0988956261490B7000A10FA /* SKParticleEmitter */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SKParticleEmitter; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +203,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D06180A3260F237C003ED0CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D098897E2614939F000A10FA /* SKParticleEmitter in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06180B9260F2380003ED0CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		8272B37C19701AFE00275F35 = {
 			isa = PBXGroup;
 			children = (
+				D0988956261490B7000A10FA /* SKParticleEmitter */,
 				8272B3F6197025E200275F35 /* libz.dylib */,
 				8272B3B01970238B00275F35 /* TBXML */,
 				8272B3BC1970239C00275F35 /* Particle Emitter Config */,
@@ -141,7 +232,10 @@
 				8272B3F0197023DD00275F35 /* SpriteKit */,
 				8272B38719701AFE00275F35 /* ParticleEmitterDemo-SK */,
 				8272B3A319701AFE00275F35 /* ParticleEmitterDemo-SKTests */,
+				D06180A7260F237D003ED0CD /* ParticleEmitterDemo-SK-Swift */,
+				D06180BF260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests */,
 				8272B38619701AFE00275F35 /* Products */,
+				D040E73E2611A21000D94D88 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +244,8 @@
 			children = (
 				8272B38519701AFE00275F35 /* ParticleEmitterDemo-SK.app */,
 				8272B3A019701AFE00275F35 /* ParticleEmitterDemo-SKTests.xctest */,
+				D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */,
+				D06180BC260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,6 +381,39 @@
 			path = SKParticleEmitter;
 			sourceTree = "<group>";
 		};
+		D040E73E2611A21000D94D88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D040E73F2611A21000D94D88 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D06180A7260F237D003ED0CD /* ParticleEmitterDemo-SK-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				D06180A8260F237D003ED0CD /* AppDelegate.swift */,
+				D06180AA260F237D003ED0CD /* GameScene.sks */,
+				D00E45962613372F00279E8D /* Launch Screen.storyboard */,
+				D06180AC260F237D003ED0CD /* Actions.sks */,
+				D06180AE260F237D003ED0CD /* GameScene.swift */,
+				D06180B0260F237D003ED0CD /* GameViewController.swift */,
+				D06180B2260F237D003ED0CD /* MainSwift.storyboard */,
+				D06180B5260F2380003ED0CD /* Assets.xcassets */,
+				D06180B7260F2380003ED0CD /* Info.plist */,
+			);
+			path = "ParticleEmitterDemo-SK-Swift";
+			sourceTree = "<group>";
+		};
+		D06180BF260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				D06180C0260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift */,
+				D06180C2260F2380003ED0CD /* Info.plist */,
+			);
+			path = "ParticleEmitterDemo-SK-SwiftTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,6 +430,8 @@
 			dependencies = (
 			);
 			name = "ParticleEmitterDemo-SK";
+			packageProductDependencies = (
+			);
 			productName = "ParticleEmitterDemo-SK";
 			productReference = 8272B38519701AFE00275F35 /* ParticleEmitterDemo-SK.app */;
 			productType = "com.apple.product-type.application";
@@ -323,12 +454,51 @@
 			productReference = 8272B3A019701AFE00275F35 /* ParticleEmitterDemo-SKTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D06180A5260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06180D4260F2380003ED0CD /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SK-Swift" */;
+			buildPhases = (
+				D06180A2260F237C003ED0CD /* Sources */,
+				D06180A3260F237C003ED0CD /* Frameworks */,
+				D06180A4260F237C003ED0CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ParticleEmitterDemo-SK-Swift";
+			packageProductDependencies = (
+				D098897D2614939F000A10FA /* SKParticleEmitter */,
+			);
+			productName = "ParticleEmitterDemo-SK-Swift";
+			productReference = D06180A6260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D06180BB260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D06180D5260F2380003ED0CD /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SK-SwiftTests" */;
+			buildPhases = (
+				D06180B8260F2380003ED0CD /* Sources */,
+				D06180B9260F2380003ED0CD /* Frameworks */,
+				D06180BA260F2380003ED0CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D06180BE260F2380003ED0CD /* PBXTargetDependency */,
+			);
+			name = "ParticleEmitterDemo-SK-SwiftTests";
+			productName = "ParticleEmitterDemo-SK-SwiftTests";
+			productReference = D06180BC260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		8272B37D19701AFE00275F35 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "71Squared Ltd";
 				TargetAttributes = {
@@ -340,6 +510,13 @@
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 8272B38419701AFE00275F35;
 					};
+					D06180A5260F237C003ED0CD = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					D06180BB260F2380003ED0CD = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D06180A5260F237C003ED0CD;
+					};
 				};
 			};
 			buildConfigurationList = 8272B38019701AFE00275F35 /* Build configuration list for PBXProject "ParticleEmitterDemo-SK" */;
@@ -347,16 +524,23 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 8272B37C19701AFE00275F35;
+			packageReferences = (
+				D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */,
+				D040E7452611B48700D94D88 /* XCRemoteSwiftPackageReference "GzipSwift" */,
+			);
 			productRefGroup = 8272B38619701AFE00275F35 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8272B38419701AFE00275F35 /* ParticleEmitterDemo-SK */,
 				8272B39F19701AFE00275F35 /* ParticleEmitterDemo-SKTests */,
+				D06180A5260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift */,
+				D06180BB260F2380003ED0CD /* ParticleEmitterDemo-SK-SwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -402,6 +586,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D06180A4260F237C003ED0CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D040E75E2611CE6000D94D88 /* Electrons.pex in Resources */,
+				D040E75D2611CE6000D94D88 /* Blue Galaxy.pex in Resources */,
+				D040E75A2611CE6000D94D88 /* Crazy Blue.pex in Resources */,
+				D00E45972613372F00279E8D /* Launch Screen.storyboard in Resources */,
+				D040E7592611CE6000D94D88 /* JasonChoi_Flash.pex in Resources */,
+				D06180B4260F237D003ED0CD /* MainSwift.storyboard in Resources */,
+				D040E76C2611CE6700D94D88 /* Real Popcorn.pex in Resources */,
+				D040E75F2611CE6000D94D88 /* Blue Flame.pex in Resources */,
+				D040E7692611CE6700D94D88 /* Touch Up.pex in Resources */,
+				D040E7602611CE6000D94D88 /* Meks Blood Spill.pex in Resources */,
+				D06180AB260F237D003ED0CD /* GameScene.sks in Resources */,
+				D06180B6260F2380003ED0CD /* Assets.xcassets in Resources */,
+				D06181232610001F003ED0CD /* Comet.pex in Resources */,
+				D040E7682611CE6700D94D88 /* The Sun.pex in Resources */,
+				D040E75B2611CE6000D94D88 /* Into The Blue.pex in Resources */,
+				D040E76D2611CE6700D94D88 /* Trippy.pex in Resources */,
+				D040E7662611CE6700D94D88 /* wu1.pex in Resources */,
+				D040E7572611CE6000D94D88 /* Atomic Bubble.pex in Resources */,
+				D040E7582611CE6000D94D88 /* huo1.pex in Resources */,
+				D040E76B2611CE6700D94D88 /* Plasma Glow.pex in Resources */,
+				D040E7612611CE6000D94D88 /* JasonChoi_rising up.pex in Resources */,
+				D040E7672611CE6700D94D88 /* Shooting Fireball.pex in Resources */,
+				D040E7562611CE6000D94D88 /* JasonChoi_Swirl01.pex in Resources */,
+				D040E75C2611CE6000D94D88 /* Foam.pex in Resources */,
+				D06180AD260F237D003ED0CD /* Actions.sks in Resources */,
+				D040E76A2611CE6700D94D88 /* Winner Stars.pex in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06180BA260F2380003ED0CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0618114260FFFAF003ED0CD /* Crazy Blue.pex in Resources */,
+				D0618111260FFFAF003ED0CD /* huo1.pex in Resources */,
+				D061810A260FFFAF003ED0CD /* Winner Stars.pex in Resources */,
+				D0618110260FFFAF003ED0CD /* Plasma Glow.pex in Resources */,
+				D0618113260FFFAF003ED0CD /* Touch Up.pex in Resources */,
+				D0618117260FFFAF003ED0CD /* JasonChoi_Swirl01.pex in Resources */,
+				D00E45982613372F00279E8D /* Launch Screen.storyboard in Resources */,
+				D0618119260FFFAF003ED0CD /* Blue Flame.pex in Resources */,
+				D0618116260FFFAF003ED0CD /* wu1.pex in Resources */,
+				D0618118260FFFAF003ED0CD /* Comet.pex in Resources */,
+				D0618115260FFFAF003ED0CD /* The Sun.pex in Resources */,
+				D061810C260FFFAF003ED0CD /* Into The Blue.pex in Resources */,
+				D061810D260FFFAF003ED0CD /* Foam.pex in Resources */,
+				D061810B260FFFAF003ED0CD /* Atomic Bubble.pex in Resources */,
+				D061810E260FFFAF003ED0CD /* Blue Galaxy.pex in Resources */,
+				D061811A260FFFAF003ED0CD /* Shooting Fireball.pex in Resources */,
+				D061811C260FFFAF003ED0CD /* JasonChoi_rising up.pex in Resources */,
+				D061810F260FFFAF003ED0CD /* Trippy.pex in Resources */,
+				D0618112260FFFAF003ED0CD /* Real Popcorn.pex in Resources */,
+				D061811E260FFFAF003ED0CD /* Electrons.pex in Resources */,
+				D061811B260FFFAF003ED0CD /* JasonChoi_Flash.pex in Resources */,
+				D061811D260FFFAF003ED0CD /* Meks Blood Spill.pex in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -430,6 +676,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D06180A2260F237C003ED0CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06180AF260F237D003ED0CD /* GameScene.swift in Sources */,
+				D06180B1260F237D003ED0CD /* GameViewController.swift in Sources */,
+				D06180A9260F237D003ED0CD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D06180B8260F2380003ED0CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D06180C1260F2380003ED0CD /* ParticleEmitterDemo_SK_SwiftTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -437,6 +701,11 @@
 			isa = PBXTargetDependency;
 			target = 8272B38419701AFE00275F35 /* ParticleEmitterDemo-SK */;
 			targetProxy = 8272B3A119701AFE00275F35 /* PBXContainerItemProxy */;
+		};
+		D06180BE260F2380003ED0CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D06180A5260F237C003ED0CD /* ParticleEmitterDemo-SK-Swift */;
+			targetProxy = D06180BD260F2380003ED0CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -447,6 +716,14 @@
 				8272B39819701AFE00275F35 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D06180B2260F237D003ED0CD /* MainSwift.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D06180B3260F237D003ED0CD /* Base */,
+			);
+			name = MainSwift.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -539,7 +816,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "ParticleEmitterDemo-SK/ParticleEmitterDemo-SK.pch";
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -554,7 +834,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "ParticleEmitterDemo-SK/ParticleEmitterDemo-SK.pch";
 				INFOPLIST_FILE = "ParticleEmitterDemo-SK/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -573,7 +856,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ParticleEmitterDemo-SKTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -588,9 +875,193 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ParticleEmitterDemo-SKTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+		D06180CE260F2380003ED0CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ParticleEmitterDemo-SK-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D06180CF260F2380003ED0CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ParticleEmitterDemo-SK-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D06180D0260F2380003ED0CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ParticleEmitterDemo-SK-SwiftTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-SwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParticleEmitterDemo-SK-Swift.app/ParticleEmitterDemo-SK-Swift";
+			};
+			name = Debug;
+		};
+		D06180D1260F2380003ED0CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "ParticleEmitterDemo-SK-SwiftTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pkclsoft.ParticleEmitterDemo-SK-SwiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ParticleEmitterDemo-SK-Swift.app/ParticleEmitterDemo-SK-Swift";
 			};
 			name = Release;
 		};
@@ -624,7 +1095,51 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		D06180D4260F2380003ED0CD /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SK-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06180CE260F2380003ED0CD /* Debug */,
+				D06180CF260F2380003ED0CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D06180D5260F2380003ED0CD /* Build configuration list for PBXNativeTarget "ParticleEmitterDemo-SK-SwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D06180D0260F2380003ED0CD /* Debug */,
+				D06180D1260F2380003ED0CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D040E7452611B48700D94D88 /* XCRemoteSwiftPackageReference "GzipSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/1024jp/GzipSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		D0618103260FF5C8003ED0CD /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MaxDesiatov/XMLCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D098897D2614939F000A10FA /* SKParticleEmitter */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SKParticleEmitter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8272B37D19701AFE00275F35 /* Project object */;
 }
